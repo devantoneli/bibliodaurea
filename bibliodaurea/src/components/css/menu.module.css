@@ -1,0 +1,38 @@
+.MenuBase {
+    width: 210px;
+    height: 100vh;
+    background: linear-gradient(180deg, #05DCC2 0%, #02BFDE 100%);
+    padding: 25px 20px 0px 10px;
+    margin: 0;
+}
+
+.MenuBase li {
+    list-style: none;
+    padding: 0 0 8px 0;
+}
+
+.MenuLogo{
+    margin-left: 20px;
+}
+
+.MenuGroup {
+    padding-top: 40px;
+    color: white;
+    font-size: 1.8em;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.MenuOptions {
+    font-size: 1.3em;
+    padding: 0;
+}
+
+.Option {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.Option:hover {
+    text-shadow: -1px 4px 8px rgba(255, 255, 255, 0.55);
+}
