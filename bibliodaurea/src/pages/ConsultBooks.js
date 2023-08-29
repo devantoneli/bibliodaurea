@@ -1,7 +1,14 @@
+import BooksList from '../components/BooksList';
+import SearchForm from '../components/SearchForm'
+import styles from './css/consult.module.css'
+
 function ConsultBooks(){
     return(
         <div>
-            consultar livros
+            <SearchForm view="Consultar Livros" name="Profª Graça" src="../img/searchIcon.png"/>
+            <div className={styles.consultBooks}>
+                <BooksList />
+            </div>
         </div>
     )
 }

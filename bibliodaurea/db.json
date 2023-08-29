@@ -1,9 +1,24 @@
 {
     "projects": [],
-    "categories": [
+    "books": [
         {
-            "id":1,
-            "name":"teste"
+            "title": "Vidas Secas",
+            "genre": "Romance brasileiro",
+            "status":{
+                "name": "Emprestado",
+                "since": "24/08/2023",
+                "until": "30/08/2023"
+            },
+            "autor": "Graciliano Ramos",
+            "edition": "149ª",
+            "copies": 10,
+            "type": "Comum"
+        },
+        {
+            "title": "teste2"
+        },
+        {
+            "title": "teste3"
         }
     ]
 }
