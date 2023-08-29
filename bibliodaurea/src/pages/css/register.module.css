@@ -1,5 +1,76 @@
 .FormBooks{
-    width: 500px;
-    height: 400px;
-    border: solid 1px black;
+    width: 1200px;
+    height: 800px;
+    border: solid 1px rgb(245, 236, 236);
+    margin-top: 20px;
+    margin-left: 200px;
+    border-radius:50px;
+    background-color: rgb(241, 235, 235);
 }
+
+.titlebook{
+    margin-left:200px;
+    padding-top: 10px;
+    font-size: 40px;
+    color: #039684;
+}
+
+.titleGraca{
+    float: right;
+    padding-top: 10px;
+    font-size: 40px;
+    color: #039684;
+}
+
+.divBook{
+    width: 300px;
+    height: 400px;
+    border:solid 1px aliceblue;
+    margin-left: 200px;
+    margin-top:180px;
+    border-radius:20px;
+    background-color: aliceblue;
+}
+
+.formregister{
+   margin-left: 600px;
+   margin-top: -420px;
+}
+
+.Tbook{
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border:solid 3px rgba(0, 188, 222, 1) ;
+}
+
+.buttonForm{
+
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(3, 194, 221, 1);
+    border-color:  rgba(3, 194, 221, 1);
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+label {
+    position: absolute;
+    top: 5;
+    left: 10;
+    transition: 0.2s ease-in-out;
+  }
+  
+  input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  input:focus + label {
+    top: -20px;
+    font-size: 12px;
+  }
+  
