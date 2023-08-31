@@ -18,8 +18,10 @@ function SearchForm(props, src){
 
             <button className={styles.searchIcons}><img src={filterIcon} alt="Logo de filtro"  width="35px" /></button>
 
-            <h2 className={styles.userName}>{props.name}</h2>
-            <button className={styles.perfilImg}><img src={src} alt="Foto de perfil do usuário logado" width="90px"/></button>
+            <div className={styles.infoPerfil}>
+                <h2 className={styles.userName}>{props.name}</h2>
+                <button className={styles.perfilImg}><img src={src} alt="Foto de perfil do usuário logado" width="90px"/></button>
+            </div>
         </div>
     )
 }

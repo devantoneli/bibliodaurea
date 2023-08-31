@@ -1,6 +1,9 @@
+//Components
 import BooksList from '../components/BooksList';
-import SearchForm from '../components/SearchForm'
-import styles from './css/consult.module.css'
+import SearchForm from '../components/SearchForm';
+
+//Styles
+import styles from './css/consult.module.css';
 
 function ConsultBooks(){
     return(

@@ -1,0 +1,20 @@
+.BooksList {
+    border-radius: 26px;
+    background: linear-gradient(90deg, #3FD2EA 42.1%, #00EACE 109.16%);
+    padding: 15px 25px;
+
+    text-align: left;
+}
+
+.headBList {
+    color: white;
+    font-size: 1.1em;
+}
+
+.thBList{
+   padding-bottom: 10px;
+}
+
+.capeBList {
+    width: 60px;
+}

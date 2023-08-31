@@ -4,15 +4,72 @@
     background: linear-gradient(180deg, #05DCC2 0%, #02BFDE 100%);
     padding: 25px 20px 0px 10px;
     margin: 0;
+    transition: width 0.3s ease;
 }
+
+  @media (max-width: 1100px) {
+    .MenuBase {
+        width: 60px;
+    }
+
+    .MenuExtends {
+        opacity: 1 !important;
+    }
+
+    .MenuGroup {
+        opacity: 0;
+    }
+
+    .MenuOptions {
+        opacity: 0;
+    }
+
+    .MenuLogo {
+        opacity: 0;
+    }
+  }
+
+  @media (max-width: 1400px) and (min-width: 1100px) {
+    .MenuBase {
+        width: 130px;
+        padding: 20px 38px 0px 0px;
+    }
+
+    .MenuGroup {
+        font-size: 1.3em !important;
+    }
+
+    .MenuOptions {
+       font-size: 1.1em !important;
+    }
+
+    .MenuLogo {
+       width: 70px;
+       margin-left: 10px !important;
+    }
+  }
+  
 
 .MenuBase li {
     list-style: none;
     padding: 0 0 8px 0;
 }
 
-.MenuLogo{
+.MenuLogo {
     margin-left: 20px;
+    transition: opacity 0.2s ease;
+}
+
+.MenuExtends {
+    position: absolute;
+    background: none;
+    border: none;
+    width: 70px;
+    height: 70px;
+    top: 40px;
+    left: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .MenuGroup {
@@ -21,11 +78,13 @@
     font-size: 1.8em;
     padding-bottom: 10px;
     margin: 0;
+    transition: opacity 0.2s ease;
 }
 
 .MenuOptions {
     font-size: 1.3em;
     padding: 0;
+    transition: opacity 0.2s ease;
 }
 
 .Option {

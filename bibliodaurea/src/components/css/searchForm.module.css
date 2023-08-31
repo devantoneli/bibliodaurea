@@ -4,24 +4,70 @@
   }
 
 .searchForm {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 280px 325px 35px 35px auto;
+    grid-template-rows: 100px;
     width: 84%;
     position: fixed;
-    margin-top: -120px;
+    padding-top: 15px;
+    margin-top: -7.5%;
     background-color: rgb(244, 244, 244);
+    height: 10%;
 }
+
+@media (max-width: 1300px) {
+    .searchForm {
+        grid-template-columns: 215px 325px 35px 35px auto;
+        width: 84%;
+        height: 10%;
+    }
+
+    .infoPerfil {
+        margin-left: 50% !important;
+    }
+
+    .searchView {
+        font-size: 1.5em;
+    }
+
+    .searchInput {
+        width: 300px;
+        height: 30px !important;
+        margin-top: 20px !important;
+        border-radius: 7px !important;
+        font-size: 1em;
+    }
+
+    .userName {
+        font-size: 1.4em;
+        margin-top: 19px !important;
+    }
+    
+    .perfilImg{
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .perfilImg img{
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .searchIcons {
+        margin-top: 15px !important;
+    }
+  }
 
 .searchView {
     color: #039684;
     margin-left: 18px;
-    width: 300px;
+    width: 400px;
 }
 
 .searchInput {
-    width: 400px;
+    width: 300px;
     height: 39px;
-    margin: 23px 0px 0px 0%;
+    margin-top: 23px;
     padding: 0px 14px;
 
     border-radius: 10px;
@@ -29,7 +75,7 @@
 
     border: none;
     font-family: 'Outfit';
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .searchInput:focus-visible {
@@ -46,10 +92,17 @@
     border: none;
 }
 
+.infoPerfil {
+    display: flex;
+    width: 300px;
+    margin-left: 75%;
+    transition: margin-left 0.3s ease;
+}
+
 .userName {
     color: #039684;
-    margin-left: 35%;
-    width: 200px;
+    width: 150px;
+    margin-top: 28px;
 }
 
 .perfilImg{

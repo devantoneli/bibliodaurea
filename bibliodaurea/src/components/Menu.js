@@ -4,12 +4,14 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 
 //Images
 import Logo from '../img/LogoLight.png'
+import MiniMenu from '../img/miniMenu.png'
 
 function Menu(){
     return(
         <nav className={styles.MenuBase}>
                 <ul>
                     <img src={Logo} alt="Logo" width="90px" className={styles.MenuLogo}></img>
+                    <button className={styles.MenuExtends}><img src={MiniMenu} alt="Extender o menu" width="70px"></img></button>
 
                     <h1 className={styles.MenuGroup}>Consultar</h1>
                     <ul className={styles.MenuOptions}>
