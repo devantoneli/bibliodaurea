@@ -19,33 +19,49 @@ function BooksList(){
 
     return(
         <div>
-            <table className={styles.BooksList}>
-                <thead className={styles.headBList}>
-                    <tr>
-                        <th className={styles.capeBList && styles.thBList}>Capa</th>
-                        <th className={styles.thBList}>Título</th>
-                        <th className={styles.thBList}>Estado</th>
-                        <th className={styles.thBList}>Gênero</th>
-                        <th className={styles.thBList}>Descrição do estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
-                        <td>Dado da Linha 1, Coluna 2</td>
-                        <td>Dado da Linha 1, Coluna 2</td>
-                        <td>Dado da Linha 1, Coluna 2</td>
-                        <td>Dado da Linha 1, Coluna 2</td>
-                    </tr>
-                    <tr>
-                        <td><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
-                        <td>Dado da Linha 2, Coluna 2</td>
-                        <td>Dado da Linha 2, Coluna 2</td>
-                        <td>Dado da Linha 2, Coluna 2</td>
-                        <td>Dado da Linha 2, Coluna 2</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className={styles.MenuBList}>
+                <h2 className={`${styles.OptionBList} ${styles.MenuBActive}`}>Todos</h2>
+
+                <h2 className={`${styles.OptionBList} ${styles.MenuBTwo}`}>Disponíveis</h2>
+
+                <h2 className={`${styles.OptionBList} ${styles.MenuBThree}`}>Emprestados</h2>
+
+                <h2 className={`${styles.OptionBList} ${styles.MenuBFour}`}>Indisponíveis</h2>
+            </div>
+
+            <div className={styles.ListBase}>
+                <table className={styles.BooksList}>
+                    <thead className={styles.HeadBList}>
+                        <tr>
+                            <th className={`${styles.ThBList} ${styles.CapeBList} ${styles.LeftBorder}`}>#</th>
+                            <th className={`${styles.ThBList} ${styles.CapeBList}`}>Capa</th>
+                            <th className={`${styles.ThBList} ${styles.TitleBList}`}>Título</th>
+                            <th className={`${styles.ThBList} ${styles.StatusBList}`}>Estado</th>
+                            <th className={`${styles.ThBList} ${styles.GenreBList}`}>Gênero</th>
+                            <th className={`${styles.ThBList} ${styles.DescriptionBList} ${styles.RightBorder}`}>Descrição do estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className={styles.LightLine}>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>5248</td>
+                            <td className={styles.TdBList}><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}><button className={styles.Avaliable}>Disponível</button></td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
+                        </tr>
+                        <tr>
+                            <td className={`${styles.TdBList} ${styles.IdBList}`}>5248</td>
+                            <td className={styles.TdBList}><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
+                            <td className={styles.TdBList}>Vermelho, Branco e Sangue Azul</td>
+                            <td className={styles.TdBList}><button className={styles.Unvaliable}>Indisponível</button></td>
+                            <td className={styles.TdBList}>Romance, Terror</td>
+                            <td className={styles.TdBList}>Para Maria Silva, com previsão de entrega no dia 15/08/2023</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

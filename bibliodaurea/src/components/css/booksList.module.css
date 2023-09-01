@@ -1,20 +1,190 @@
-.BooksList {
-    border-radius: 26px;
-    background: linear-gradient(90deg, #3FD2EA 42.1%, #00EACE 109.16%);
-    padding: 15px 25px;
-
-    text-align: left;
+.MenuBList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
 }
 
-.headBList {
+.MenuBActive {
+    background-color: rgb(255, 255, 255) !important;
+    z-index: 3;
+    color: #037E7E !important;
+}
+
+.OptionBList {
+    background-color: rgb(200, 200, 200);
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.30);
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-right: -5px;
+    margin-top: 0;
+    font-weight: 550;
+    color: gray;
+}
+
+.MenuBTwo {
+    z-index: 2;
+}
+
+.MenuBThree {
+    z-index: 1;
+}
+
+.MenuBFour {
+    z-index: 0.5;
+}
+
+.ListBase {
+    background-color: white;
+    padding: 25px 25px;
+    box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    margin-top: -24px;
+    z-index: 3;
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .OptionBList {
+        margin-top: 18px;
+        font-size: 1.3em;
+        padding: 12px 2vw;
+    }
+}
+
+.BooksList {
+    border-radius: 26px;
+    background: linear-gradient(90deg, #3FD2EA 22.1%, #00EACE 109.16%);
+
+    text-align: center;
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+.HeadBList {
     color: white;
+    font-size: 1.1em;
+    margin: 100px;
+}
+
+.ThBList{
+   padding: 11px 23px;
+   border: 4px solid rgb(255, 255, 255);
+   border-top: 0px;
+}
+
+.LeftBorder {
+    border-left: none;
+}
+
+.RightBorder {
+    border-right: none;
+}
+
+.TdBList {
+    outline: 2px solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 7px 10px;
+    color: white;
+    font-weight: 500;
+}
+
+.GreenFont {
+    color: #037E7E;
+}
+
+.LightLine {
+    background: #C8F3FA;
+}
+
+.CapeBList {
+    width: 30px;
+    clip-path: fill-box;
+}
+
+.TitleBList {
+    width: 160px;
+}
+
+.StatusBList {
+    width: 70px;
+}
+
+.GenreBList {
+    width: 100px;
+}
+
+.DescriptionBList {
+    width: 180px;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/Outfit.ttf');
+  }
+
+.Avaliable {
+    border-radius: 9px;
+    background: linear-gradient(180deg, #00FF94 0%, #05DC82 100%);
+
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Outfit';
     font-size: 1.1em;
 }
 
-.thBList{
-   padding-bottom: 10px;
+.Unvaliable {
+    border-radius: 9px;
+    background: linear-gradient(180deg, #D0D0D0 49.76%, #ACACAC 100%);
+
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Outfit';
+    font-size: 1.1em;
 }
 
-.capeBList {
-    width: 60px;
+.Blocked {
+    border-radius: 9px;
+    background: linear-gradient(180deg, #FF7171 0%, #F00 99.99%, #FF7171 100%);
+
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Outfit';
+    font-size: 1.1em;
+}
+
+.Lost {
+    border-radius: 9px;
+    background: linear-gradient(180deg, #FFB47E 47.96%, #FF8125 122.81%);
+
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Outfit';
+    font-size: 1.1em;
+}
+
+.Borrowed {
+    border-radius: 9px;
+    background: linear-gradient(180deg, #10F9DD 0%, #14F5DA 0.01%, #53DBCB 121.93%);
+
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Outfit';
+    font-size: 1.1em;
 }

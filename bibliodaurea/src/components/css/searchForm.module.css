@@ -10,9 +10,11 @@
     width: 84%;
     position: fixed;
     padding-top: 15px;
-    margin-top: -7.5%;
+    margin-top: -8.5%;
+    margin-left: -10px ;
     background-color: rgb(244, 244, 244);
     height: 10%;
+    z-index: 4;
 }
 
 @media (max-width: 1300px) {
