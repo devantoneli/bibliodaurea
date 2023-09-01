@@ -1,76 +1,86 @@
 .FormBooks{
-    width: 1200px;
-    height: 800px;
-    border: solid 1px rgb(245, 236, 236);
-    margin-top: 20px;
-    margin-left: 200px;
-    border-radius:50px;
-    background-color: rgb(241, 235, 235);
+    display: flex;
+    width: 2200px;
+    height: 700px;
+    margin-top: 100px;
+    margin-left: 100px;
+    border-radius:30px;
+    background-color: rgba(240, 238, 238, 0.665);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
 }
 
-.titlebook{
-    margin-left:200px;
-    padding-top: 10px;
-    font-size: 40px;
-    color: #039684;
+/*
+@media screen and (min-width: 1400px) {
+	.FormBooks {
+        display: flex;
+        height: 700px;
+        margin-top: 100px;
+		
+	}
 }
 
-.titleGraca{
-    float: right;
-    padding-top: 10px;
-    font-size: 40px;
-    color: #039684;
+@media screen and (min-width: 1366px) {
+	.FormBooks {
+        display: flex;
+        margin-top: 100px;
+        height: 600px;
+		}
 }
 
-.divBook{
+@media screen and (min-width: 1280px) {
+	.FormBooks {
+        display: flex;
+        margin-top: 100px;
+        height: 600px;
+		}
+}
+
+@media screen and (min-width: 1068px) {
+	.FormBooks {
+        display: flex;
+        margin-top: 100px;
+        height: 700px;
+		}
+}
+
+@media screen and (min-width: 860px) {
+	.FormBooks {
+        display: flex;
+        margin-top: 100px;
+        height: 550px;
+		}
+}*/
+
+
+
+
+.DivBook{
+    display: flex;
     width: 300px;
-    height: 400px;
+    height: 500px;
     border:solid 1px aliceblue;
     margin-left: 200px;
-    margin-top:180px;
+    margin-top:100px;
     border-radius:20px;
     background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.formregister{
-   margin-left: 600px;
-   margin-top: -420px;
+
+.IconBook{
+    margin-left: 10px 10px 0 0;
 }
 
-.Tbook{
-    width: 500px;
-    height: 30px;
-    border-radius: 5px;
-    border:solid 3px rgba(0, 188, 222, 1) ;
+
+.Formregister{
+    display:flex;
+    margin-left:100px;
+    margin-top: 200px;
 }
 
-.buttonForm{
-
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-    color: white;
-    background-color: rgba(3, 194, 221, 1);
-    border-color:  rgba(3, 194, 221, 1);
-    border-radius: 5px;
-    margin-top: 80px;
+.FileInput{
+    display: none
 }
 
-label {
-    position: absolute;
-    top: 5;
-    left: 10;
-    transition: 0.2s ease-in-out;
-  }
-  
-  input {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  input:focus + label {
-    top: -20px;
-    font-size: 12px;
-  }
-  
+

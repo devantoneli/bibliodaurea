@@ -1,51 +1,52 @@
 import styles from './css/register.module.css';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import { FaBeer } from 'react-icons/fa';
 
 
-const Form = () => {
-
-    
-      
-
-};
 function RegisterBooks(){
     return(
         <div className={styles.FundoRegister}>
         
             
+            
             <div className={styles.FormBooks}>
-                <div className={styles.divBook}>
+                <div className={styles.DivBook}>
+                <label for="FileInput">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M18 20H4V6h9V4H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2v9zm-7.79-3.17l-1.96-2.36L5.5 18h11l-3.54-4.71zM20 4V1h-2v3h-3c.01.01 0 2 0 2h3v2.99c.01.01 2 0 2 0V6h3V4h-3z"></path></svg>
                 
+                <input type="file" className={styles.FileInput}  accept=".pdf, .doc, .docx"/>
+                </label>
                 </div>
 
-         <div className={styles.formregister}>
-            <form>
-                <label for="fname">Título do Livro:</label><br />
-                <input type="text" className={styles.Tbook} name="fname" placeholder="TÍTULO" /><br /><br></br>
-                <label for="lname">Gênero:</label><br/>
-                <input type="text" className={styles.Tbook} name="lname" /><br /><br />
-                <label for="lname">Autor:</label><br/>
-                <input type="text" className={styles.Tbook} name="lname" /><br /><br />
-                <label for="lname">Edição:</label><br/>
-                <input type="text" className={styles.Tbook} name="lname" /><br /><br />
-                <label for="lname">N° de exemplares:</label><br/>
-                <input type="text" className={styles.Tbook} name="lname" /><br /><br />
-                <label for="lname">Tipo de livro:</label><br/>
-                <input type="text" className={styles.Tbook} name="lname" /><br /><br />
-                <button className={styles.buttonForm}>Cadastrar</button>
-           </form>
-      </div>
+         <div className={styles.Formregister}>
+
+         <form>
+            <label for="name">Nome:</label><br></br>
+            <input type="text" id="name"/><br></br>
+            <label for="email">E-mail:</label><br></br>
+            <input type="email" id="email"/><br></br>
+            <label for="password">Senha:</label><br></br>
+            <input type="password" id="password"/><br></br>
+            <input type="submit" value="Enviar"/>
+         </form>
+         
+            
+         </div>
               
                  </div>
+
+                 
         
    
             
             
         </div>
         
+        
      )
+     
 
-    
+   
 }
 
 export default RegisterBooks;
