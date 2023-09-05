@@ -90,6 +90,14 @@
     font-weight: 500;
 }
 
+.LightLine:hover {
+    background-color: #eafdff;
+}
+
+.DefaultLine:hover {
+    background: linear-gradient(90deg, #64eaff 22.1%, #46ffe9 109.16%);
+}
+
 .GreenFont {
     color: #037E7E;
 }
@@ -123,6 +131,9 @@
     font-family: 'Outfit';
     src: url('../../fonts/Outfit.ttf');
   }
+
+
+/* Status */
 
 .Avaliable {
     border-radius: 9px;
@@ -187,4 +198,12 @@
     font-weight: 700;
     font-family: 'Outfit';
     font-size: 1.1em;
+}
+
+.EndBAround {
+    border-bottom-left-radius: 26px;
+}
+
+.EndBAround2 {
+    border-bottom-right-radius: 26px;
 }

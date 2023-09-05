@@ -42,22 +42,20 @@ function BooksList(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className={styles.LightLine}>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>5248</td>
-                            <td className={styles.TdBList}><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}><button className={styles.Avaliable}>Disponível</button></td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>Dado da Linha 2, Coluna 2</td>
-                        </tr>
-                        <tr>
-                            <td className={`${styles.TdBList} ${styles.IdBList}`}>5248</td>
-                            <td className={styles.TdBList}><img width="60px" src="https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0" /></td>
-                            <td className={styles.TdBList}>Vermelho, Branco e Sangue Azul</td>
-                            <td className={styles.TdBList}><button className={styles.Unvaliable}>Indisponível</button></td>
-                            <td className={styles.TdBList}>Romance, Terror</td>
-                            <td className={styles.TdBList}>Para Maria Silva, com previsão de entrega no dia 15/08/2023</td>
-                        </tr>
+                        {booksList.map((book, index) => (
+                            <tr key={index} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround : ''}`}> {book.id} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> <img width="60px" src={book.cover} alt={book.title} /> </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
+
+                            <td className={`${styles.TdBList}`}>
+                                <button className={book.status.name == "Disponível" ? styles.Avaliable : book.status.name == "Indisponível" ? styles.Unvaliable : book.status.name == "Bloqueado" ? styles.Blocked : book.status.name == "Extraviado" ? styles.Lost : book.status.name == "Emprestado" ? styles.Borrowed : "Status indefinido"}>{book.status.name}</button>
+                            </td>
+
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.genre} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.status.description} </td>
+                            </tr>
+                        ))}
 
                     </tbody>
                 </table>
@@ -68,23 +66,15 @@ function BooksList(){
 
 export default BooksList;
 
-{/* <h2>Lista de Livros</h2>
-<ul>
-    {booksList.map((book, index) => (
-        <li key={index}>
-            <h3>{book.title}</h3>
-            <p>Autor: {book.autor}</p>
-            <p>Gênero: {book.genre}</p>
-            <p>Edição: {book.edition}</p>
-            <p>Cópias: {book.copies}</p>
-            <p>Tipo: {book.type}</p>
-            {book.status && (
-                <div>
-                    <p>Status: {book.status.name}</p>
-                    <p>Emprestado desde: {book.status.since}</p>
-                    <p>Emprestado até: {book.status.until}</p>
-                </div>
-            )}
-        </li>
-    ))}
-</ul> */}
+{/*                     {booksList.map((book, index) => (
+                        <tr key={index} className={styles.LightLine}>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{index + 1}</td>
+                            <td className={styles.TdBList}><img width="60px" src={book.coverImage} alt={book.title} /></td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.title}</td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>
+                            <button className={styles.Avaliable}>{book.status.name}</button>
+                            </td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.genre}</td>
+                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.status.description}</td>
+                        </tr>
+                    ))}> */}
