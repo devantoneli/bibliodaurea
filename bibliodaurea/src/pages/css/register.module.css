@@ -1,11 +1,11 @@
 .FormBooks{
     display: flex;
-    width: 2200px;
+    width:1084;
     height: 700px;
     margin-top: 100px;
     margin-left: 100px;
-    border-radius:30px;
-    background-color: rgba(240, 238, 238, 0.665);
+    border-radius:10px;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
 }
@@ -59,28 +59,52 @@
     display: flex;
     width: 300px;
     height: 500px;
-    border:solid 1px aliceblue;
-    margin-left: 200px;
+    border:solid 1px #C0C0C0;
+    margin-left: 20em;
     margin-top:100px;
-    border-radius:20px;
-    background-color: aliceblue;
+    border-radius:5px;
+    background-color: #c8c8c8;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
-.IconBook{
-    margin-left: 10px 10px 0 0;
-}
+
 
 
 .Formregister{
     display:flex;
-    margin-left:100px;
-    margin-top: 200px;
+    margin-left:5em;
+    margin-top: 6em;
 }
 
-.FileInput{
-    display: none
+.inputForm{
+    display: flex;
+    width: 40em;
+    height: 3em;
+    border-radius: 5px;
+    border: none;
+    border: solid 3px #00BCDE;
+    box-shadow:#bfedf5 0px 3px 8px;
+
 }
+
+.buttonregister{
+    width: 20em;
+    height: 3em;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #4ae2fd;
+    color: white;
+    font-size: 1em;
+    margin-left: -10em;
+   
+
+
+}
+
+
+
+
 
 
