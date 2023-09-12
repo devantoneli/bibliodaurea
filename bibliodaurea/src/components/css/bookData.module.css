@@ -1,0 +1,95 @@
+.BookData {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px;
+}
+
+.BlockData {
+    display: flex;
+    flex-direction: column;
+}
+
+.DataList {
+    display: flex;
+    flex-direction: row;
+}
+
+.TopDataList {
+    display: flex;
+    flex-direction: row;
+}
+
+.CapeImg {
+    width: 300px;
+}
+
+.EditBButton {
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+    border: none;
+    background: none;
+    position: absolute;
+    right: 45px;
+}
+
+.EditBButton img{
+    width: 50px;
+    height: 50px;
+}
+
+.DataLine1 {
+    display: flex;
+}
+
+.DataLine2 {
+    display: flex;
+}
+
+.DataLine3 {
+    display: flex;
+}
+
+.DataLine4 {
+    display: flex;
+}
+
+.DataLines {
+    padding: 0px 20px;
+}
+
+.BookTitle {
+    color: #037E7E;
+    font-size: 1.7em;
+}
+
+.HistoryButton img{
+    width: 48px;
+    height: 48px;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/Outfit.ttf');
+}
+
+.HistoryButton {
+    background: none;
+    border: none;
+}
+
+.ToLoan {
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+    font-family: 'Outfit';
+    color: white;
+    background: linear-gradient(180deg, #0ECEB8 0%, #00F3D7 100%);
+    margin: 0px !important;
+}
+
+.DataLine5 {
+}
