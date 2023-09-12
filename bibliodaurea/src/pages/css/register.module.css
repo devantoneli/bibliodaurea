@@ -3,11 +3,10 @@
     width:1084;
     height: 700px;
     margin-top: 100px;
-    margin-left: 100px;
+    margin-left: 30px;
     border-radius:10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    
 }
 
 /*
@@ -55,17 +54,7 @@
 
 
 
-.DivBook{
-    display: flex;
-    width: 300px;
-    height: 500px;
-    border:solid 1px #C0C0C0;
-    margin-left: 20em;
-    margin-top:100px;
-    border-radius:5px;
-    background-color: #c8c8c8;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+
 
 
 
@@ -73,7 +62,7 @@
 
 .Formregister{
     display:flex;
-    margin-left:5em;
+    margin-left:20em;
     margin-top: 6em;
 }
 
@@ -84,7 +73,7 @@
     border-radius: 5px;
     border: none;
     border: solid 3px #00BCDE;
-    box-shadow:#bfedf5 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 
@@ -98,10 +87,44 @@
     color: white;
     font-size: 1em;
     margin-left: -10em;
-   
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
 
+
+
+
+input[type='file']{
+    display:none
+}
+
+.max{
+    max-width: 450px;
+    width: 100%;
+}
+
+    
+
+.PhotoBook{
+    display: flex;
+    max-width: 300px;
+    width: 300px;
+    height: 500px;
+    background-color: #eee;
+    border: 5px solid #ccc ;
+    cursor: pointer;
+    margin-left: 20em;
+    margin-top:100px;
+    
+  
+}
+
+.PhotoBook:hover{
+    background-color: #9898a4 ;
 
 }
+
+
 
 
 

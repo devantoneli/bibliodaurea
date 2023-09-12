@@ -1,4 +1,5 @@
 import FormBook from '../components/FormBook';
+import FileBook from '../components/FileBook';
 import styles from './css/register.module.css';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 
@@ -13,7 +14,8 @@ function RegisterBooks(){
             
             <div className={styles.FormBooks}>
                 <div className={styles.DivBook}>
-                  </div>
+                <FileBook/>
+                </div>
 
          <div className={styles.Formregister}>
          <FormBook/>
@@ -27,5 +29,6 @@ function RegisterBooks(){
      
 }
 export default RegisterBooks;
+
 
 
