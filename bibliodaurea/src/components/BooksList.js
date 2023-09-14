@@ -1,9 +1,13 @@
 //Scripts, styles
-import {useState} from 'react';
+import {useState, useCallback } from 'react';
 import styles from './css/booksList.module.css';
+
+//Components
+import BookData from './BookData';
 
 function BooksList(){
     const [booksList, setBooksList] = useState([])
+    const [selectedBookId, setSelectedBookId] = useState(null);
 
     fetch("http://localhost:5000/books", {
         method: "GET",
@@ -17,7 +21,8 @@ function BooksList(){
     })
     .catch((err) => console.log(err));
 
-    return(
+    function Books({BooksList, OpenPopUp}){
+        return (
         <div>
             <div className={styles.MenuBList}>
                 <h2 className={`${styles.OptionBList} ${styles.MenuBActive}`}>Todos</h2>
@@ -43,7 +48,7 @@ function BooksList(){
                     </thead>
                     <tbody>
                         {booksList.map((book, index) => (
-                            <tr key={index} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                            <tr key={index} onClick={setSelectedBookId(book.id)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround : ''}`}> {book.id} </td>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> <img width="60px" src={book.cover} alt={book.title} /> </td>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
@@ -60,6 +65,17 @@ function BooksList(){
                     </tbody>
                 </table>
             </div>
+        </div>
+        )
+    }
+
+    return(
+        <div>
+            <Books BooksList={BooksList}/>
+            
+            {selectedBookId}
+                <BookData bookId={selectedBookId}/>
+          
         </div>
     )
 }
