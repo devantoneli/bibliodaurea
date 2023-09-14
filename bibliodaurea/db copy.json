@@ -35,7 +35,7 @@
             "author": "Vários",
             "edition": "1ª",
             "copies": 0,
-            "type": "Comum"
+            "type": "Histórico"
         },
         {
             "id" : "9",
@@ -53,7 +53,7 @@
             "author": "Yuval Noah Harari",
             "edition": "1ª",
             "copies": 0,
-            "type": "Comum"
+            "type": "Pedagógico"
         },
         {
             "id" : "10",
@@ -71,7 +71,7 @@
             "author": "Udo Simons",
             "edition": "1ª",
             "copies": 0,
-            "type": "Comum"
+            "type": "Pedagógico"
         }
     ]
 }
