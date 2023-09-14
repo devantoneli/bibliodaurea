@@ -61,10 +61,10 @@
             "cover": "https://th.bing.com/th/id/OIP.v8stK-t0s1euXobJWWSSyAHaJs?pid=ImgDet&rs=1",
             "genre": "informativo, literatura, jornalistico",
             "status":{
-                "name": "Emprestado",
-                "since": "24/08/2023",
-                "until": "30/08/2023",
-                "description": "Para Maria Silva, com previsão de entrega no dia 15/08/2023"
+                "name": "Bloqueado",
+                "since": "00/00/00",
+                "until": "00/00/00",
+                "description": "Indisponível para empréstimos"
             },
             "quantity": 1,
             "registered": "05/09/2023",
