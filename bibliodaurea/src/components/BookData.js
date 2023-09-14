@@ -26,66 +26,80 @@ function BookData(){
                     <div className={styles.DataLine1}>
                         <div className={styles.BlockData}>
                             <label for="id">Rótulo</label>
-                            <input type="text" value="6548" id="id" name="id" />
+                            <div id={styles.id} name="id">6548</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label for="genre">Gênero</label>
-                            <input type="text" value="Ficção científica, sátira, comédia e aventura espacial." id="genre" name="genre" />
+                            <div id={styles.genre} name="genre">Ficção científica, sátira, comédia e aventura espacial.</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label for="author">Autor</label>
-                            <input type="text" value="São Pedro Luiz" id="author" name="author" />
+                            <div id={styles.author} name="author">São Pedro Luiz</div>
                         </div>
                     </div>
 
                     <div className={styles.DataLine2}>
                         <div className={styles.BlockData}>
                             <label>Estado</label>
-                            <input type="text" value="Disponível" id="status" name="name" />
+                            <div id={styles.name} name="name">Disponível</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label>Data do estado</label>
-                            <input type="text" value="10/08/2023" id="since" name="since" />
+                            <div id={styles.since} name="since">10/08/2023</div>
                         </div>
+                        
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label>Exemplares</label>
-                            <input type="text" value="3" id="copies" name="copies" />
+                            <div id={styles.copies} name="copies">3</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label>Qtd. Geral</label>
-                            <input type="text" value="10" id="quantity" name="quantity" />
+                            <div id={styles.quantity} name="quantity">10</div>
                         </div>
                     </div>
 
                     <div className={styles.DataLine3}>
                         <div className={styles.BlockData}>
                             <label>Descrição do estado</label>
-                            <input type="text" value="Para Maria Silva, com previsão de entrega no dia 15/08/2023" id="description" name="description" />
+                            <div id={styles.description} name="description">Para Maria Silva, com previsão de entrega no dia 15/08/2023</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label>Adquirido em</label>
-                            <input type="text" value="20/05/1995" id="registered" name="registered" />
+                            <div id={styles.registered} name="registered">20/05/1995</div>
                         </div>
                     </div>
-
+                    
                     <div className={styles.DataLine4}>
                         <div className={styles.BlockData}>
                             <label>Tipo de livro</label>
-                            <input type="text" value="Livro de Ficção" id="type" name="type" />
+                            <div id={styles.type} name="type">Livro de Ficção</div>
                         </div>
+
+                        <hr />
 
                         <div className={styles.BlockData}>
                             <label>Edição</label>
-                            <input type="text" value="3ª edição deluxe" id="edition" name="edition" />
+                            <div id={styles.edition} name="edition">3ª edição deluxe</div>
                         </div>
                     </div>
-
+                    
                     <div className={styles.DataLine5}>
                         <button className={styles.HistoryButton}>
                             <img src={historyIcon} />

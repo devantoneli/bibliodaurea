@@ -3,11 +3,14 @@
     flex-direction: column;
     background-color: white;
     padding: 30px;
+    padding-bottom: 35px;
 }
 
-.BlockData {
-    display: flex;
-    flex-direction: column;
+.BookData hr{
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.10);
 }
 
 .DataList {
@@ -21,7 +24,7 @@
 }
 
 .CapeImg {
-    width: 300px;
+    width: 320px;
 }
 
 .EditBButton {
@@ -41,14 +44,17 @@
 
 .DataLine1 {
     display: flex;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.10);
 }
 
 .DataLine2 {
     display: flex;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.10);
 }
 
 .DataLine3 {
     display: flex;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.10);
 }
 
 .DataLine4 {
@@ -77,19 +83,130 @@
 .HistoryButton {
     background: none;
     border: none;
+    position: absolute;
+    right: 200px;
 }
 
 .ToLoan {
     border: none;
     padding: 13px;
+    height: 55px;
     border-radius: 10px;
     font-size: 1.3em;
     font-weight: 600;
     font-family: 'Outfit';
     color: white;
     background: linear-gradient(180deg, #0ECEB8 0%, #00F3D7 100%);
-    margin: 0px !important;
+    position: absolute;
+    right: 70px;
+    z-index: 2;
 }
 
 .DataLine5 {
+   display: flex;
+   flex-direction: row;
+}
+
+.BlockData {
+    display: flex;
+    padding: 10px 5px;
+    flex-direction: column;
+}
+
+.BlockData label {
+    border: none;
+    font-family: 'Outfit';
+    color: #35B9CF;
+    font-size: 1.1em;
+}
+
+.BlockData input:focus-visible {
+    outline: none;
+}
+
+.BlockData input {
+    border: none;
+    font-family: 'Outfit';
+    color: #037E7E;
+    font-weight: 500;
+    font-size: 1.1em;
+    height: 30px;
+    overflow-wrap: break-word;
+}
+
+#id {
+    width: 70px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#genre {
+    width: 300px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#author {
+    width: 170px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#name {
+    width: 170px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#since {
+    width: 150px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#copies {
+    width: 110px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#quantity {
+    width: 100px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#description {
+    width: 440px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#registered {
+    width: 100px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#type {
+    width: 150px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#edition {
+    width: 150px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
 }

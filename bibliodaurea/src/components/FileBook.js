@@ -1,5 +1,5 @@
 import styles from '../pages/css/register.module.css';
-import photo from '../img/photo.png'
+// import photo from '../img/photo.png'
 
 function FileBook(){
     return(
@@ -8,7 +8,7 @@ function FileBook(){
 
     <div className={styles.max}>
         <div className={styles.imageContainer}>
-        <img src={photo} alt='Selecine uma imagem' className={styles.PhotoBook}></img>
+        <img src="" alt='Selecine uma imagem' className={styles.PhotoBook}></img>
     </div>
 
     </div>
@@ -22,12 +22,12 @@ function FileBook(){
     )
 }
 
-let photo = document.getElementById('PhotoBook');
-let file = document.getElementById('fileimage');
+// let photo = document.getElementById('PhotoBook');
+// let file = document.getElementById('fileimage');
 
-photo.addEventListener('click', () =>{
-    file.click();
-})
+// photo.addEventListener('click', () =>{
+//     file.click();
+// })
 
 
 
