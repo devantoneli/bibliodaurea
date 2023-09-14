@@ -6,17 +6,16 @@
     margin-left: 30px;
     border-radius:10px;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
 }
 
-/*
-@media screen and (min-width: 1400px) {
-	.FormBooks {
-        display: flex;
-        height: 700px;
-        margin-top: 100px;
+
+@media screen and (min-width: 1024px) {
+	.FormBooks{
+        
+    }
 		
-	}
+	
 }
 
 @media screen and (min-width: 1366px) {
@@ -49,7 +48,7 @@
         margin-top: 100px;
         height: 550px;
 		}
-}*/
+}
 
 
 
@@ -94,34 +93,44 @@
 
 
 
-input[type='file']{
+/* input[type='file']{
     display:none
-}
+} */
 
 .max{
     max-width: 450px;
     width: 100%;
 }
 
-    
+.imageContainer:hover{
+    background-color: #d2d3d5 ;
 
-.PhotoBook{
-    display: flex;
-    max-width: 300px;
-    width: 300px;
-    height: 500px;
-    background-color: #eee;
-    border: 5px solid #ccc ;
-    cursor: pointer;
-    margin-left: 20em;
-    margin-top:100px;
-    
-  
 }
 
-.PhotoBook:hover{
-    background-color: #9898a4 ;
+.imageContainer{
+    display: flex;
+    width: 335px;
+    height: 500px;
+    background-color: none;
+    border: none;
+    margin-left: 20em;
+    margin-top:100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 20px;
+    cursor: pointer;
 
+    background-image: url('../../img/photo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+
+    overflow: hidden;
+}
+
+.PhotoBook {
+    opacity: 0;
+    height: 100%;
+    margin-left: -5px;
 }
 
 
