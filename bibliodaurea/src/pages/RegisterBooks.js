@@ -9,10 +9,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 function RegisterBooks(){
     return(
         <div className={styles.FundoRegister}>
-        
-            
-            
-            <div className={styles.FormBooks}>
+        <div className={styles.FormBooks}>
                 <div className={styles.DivBook}>
                 <FileBook/>
                 </div>

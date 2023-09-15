@@ -2,10 +2,13 @@ import styles from '../pages/css/register.module.css';
 
 function FormBook(){
     return (
+      <div className={styles.container}>
         <form>
+      
         <label>
+           
         
-          <input className={styles.inputForm} type="text" name="name" placeholder='Título:'/><br></br>
+      <input className={styles.inputForm} type="text" name="name" placeholder='Título:'/><br></br>
         </label>
         <br></br>
         <label>
@@ -34,6 +37,7 @@ function FormBook(){
         <button className={styles.buttonregister}>Cadastrar</button>
         
       </form>
+      </div>
       
         )
 }
