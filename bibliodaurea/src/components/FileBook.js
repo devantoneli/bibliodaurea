@@ -1,8 +1,4 @@
 import styles from '../pages/css/register.module.css';
-import Event from '../components/EventClick';
-// import photo from '../img/photo.png'
-
-
 import React, { useRef } from 'react';
 
 function MeuComponente() {
@@ -14,10 +10,9 @@ function MeuComponente() {
       fileInputRef.current.click();
     }
   };
-}
+
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    const fileButton = document.getElementById('fileButton');
   
     if (selectedFile) {
       var fileReader = new FileReader();
@@ -36,40 +31,24 @@ function MeuComponente() {
 
       console.log('Arquivo selecionado:', selectedFile.name);
     }
-  
+  };
 
   return (
     <div>
-    {/* <div className={styles.container}>
-      <div className={styles.max}>
-        <button className={styles.imageContainer} id="fileButton" onClick={handleCustomButtonClick}>
+      <div className={styles.container}>
+        <div className={styles.max}>
+          <button className={styles.imageContainer} id="fileButton" onClick={handleCustomButtonClick}>
             <img src="" id="photo" alt='Selecione uma imagem' className={styles.PhotoBook}/>
 
             <input id="linkImg" value="" hidden/>
 
             <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange}/>
-        </button>
+          </button>
+        </div>
+        
       </div>
-    <div className={styles.max}>
-        <div className={styles.imageContainer}>
-        <img src="" alt='Selecine uma imagem' className={styles.PhotoBook}></img>
     </div>
-    </div> */}
-    </div>
-  )};
+  );
+}
 
-
-
-
-{/* export default MeuComponente;
-// let photo = document.getElementById('PhotoBook');
-// let file = document.getElementById('fileimage');
-
-// photo.addEventListener('click', () =>{
-//     file.click();
-// }) */}
-
-
-
-{/* export default FileBook */}
-
+export default MeuComponente;
