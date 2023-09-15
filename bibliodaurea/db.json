@@ -75,11 +75,11 @@
         },
         {
             "id" : "1",
-            "title": "Diario de um banana Faça você mesmo",
-            "cover": "https://papelarianobel.com.br/produto/diario-de-um-banana-faca-voce-mesmo/",
+            "title": "Diario de um banana faça você mesmo ",
+            "cover": "https://images-americanas.b2w.io/produtos/111998213/imagens/livro-diario-de-um-banana-faca-voce-mesmo/111998213_1_xlarge.jpg",
             "genre": "Diario",
             "status":{
-                "name": "Disponivel",
+                "name": "Disponível",
                 "since": "",
                 "until": "",
                 "description": ""
@@ -88,16 +88,16 @@
             "registered": "14/09/2023",
             "author": "Jeff Kinney",
             "edition": "1ª",
-            "copies": 10,
+            "copies": 1,
             "type": "Comum"
         },
         {
             "id" : "2",
             "title": "Os contos de Beedle o bardo",
-            "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
+            "cover": "https://down-br.img.susercontent.com/file/076d0ed640888ce788fadb5e52721a44",
             "genre": "Literatura infantil, Literatura fantástica",
             "status":{
-                "name": "Disponivell",
+                "name": "Disponível",
                 "since": "",
                 "until": "",
                 "description": "Com comentarios do professor Alvo Dumbledore"
@@ -106,7 +106,7 @@
             "registered": "14/09/2023",
             "author": "J.K.Rowling",
             "edition": "2ª",
-            "copies": 10,
+            "copies": 1,
             "type": "Comum"
         },
         {
@@ -115,7 +115,7 @@
             "cover": "https://photos.enjoei.com.br/livro-os-pensadores-pre-socraticos-80012953/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8xMjcyMjY1Mi9mMjI0ODk5NjI5MDNjZTBjZDU2N2E5Y2NkNjE3NDBiMi5qcGc",
             "genre": "Enciclopédia",
             "status":{
-                "name": "Disponivell",
+                "name": "Disponível",
                 "since": "",
                 "until": "",
                 "description": ""
@@ -133,7 +133,7 @@
             "cover": "https://www.touchelivros.com.br/wp-content/uploads/2023/06/public-2023-06-18T143908.767-1.jpg",
             "genre": "Enciclopédia",
             "status":{
-                "name": "Disponivell",
+                "name": "Disponível",
                 "since": "",
                 "until": "",
                 "description": ""
@@ -148,10 +148,10 @@
         {
             "id" : "5",
             "title": "Bruxos e Bruxas",
-            "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
+            "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6tourZPfCxAdf-34h1ckSjN3Le3wSgRk4JLoZ1ZuE-pBfEZj2TRjdVEJhgw&s=5",
             "genre": "Suspense, Mistério, Literatura fantástica, Literatura infantil, Ficção distópica, Ficção supernatural, Ficção paranormal ",
             "status":{
-                "name": "Disponivell",
+                "name": "Disponível",
                 "since": "",
                 "until": "",
                 "description": ""
@@ -166,7 +166,7 @@
         {
             "id" : "6",
             "title": "New Scamander Animais Fantasticos e onde habitam",
-            "cover": "MLB-1823515096-livro-ilustrado-animais-fantasticos-e-onde-habitam-_JM#&gid=1&pid=1",
+            "cover": "https://static.wikia.nocookie.net/harrypotter/images/d/d7/Fantastic_Beasts_Illustrated_Edition_cover_Hi-res.jpg/revision/latest?cb=20210215183504&path-prefix=pt-br",
             "genre": "Literatura fantástica, Drama, Ficção de aventura",
             "status":{
                 "name": "Bloqueado",
