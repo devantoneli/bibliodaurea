@@ -20,47 +20,56 @@
             "type": "Comum"
         },
         {
-            "id" : "2",
-            "title": "Vermelho, Branco e Sangue Azul",
-            "cover": "https://th.bing.com/th/id/R.2fc128da479fc8fe65c6daab01a5739b?rik=rfObjij2Z0232g&pid=ImgRaw&r=0",
-            "genre": "Romance brasileiro",
+            "id" : "1",
+            "title": "Coraline",
+            "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
+            "genre": "Terror",
             "status":{
                 "name": "Emprestado",
                 "since": "24/08/2023",
-                "until": "30/08/2023"
+                "until": "30/08/2023",
+                "description": "Para Maria Silva, com previsão de entrega no dia 15/08/2023"
             },
-            "author": "McQuiston",
-            "edition": "2ª",
+            "quantity": 13,
+            "registered": "05/09/2023",
+            "author": "Neil Gaiman",
+            "edition": "1ª",
             "copies": 10,
             "type": "Comum"
         },
         {
-            "id" : "3",
-            "title": "Vidas Secas",
-            "cover": "https://www.record.com.br/wp-content/uploads/2019/07/16406-600x927.jpeg",
-            "genre": "Romance brasileiro",
+            "id" : "1",
+            "title": "Coraline",
+            "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
+            "genre": "Terror",
             "status":{
                 "name": "Emprestado",
                 "since": "24/08/2023",
-                "until": "30/08/2023"
+                "until": "30/08/2023",
+                "description": "Para Maria Silva, com previsão de entrega no dia 15/08/2023"
             },
-            "author": "Graciliano Ramos",
-            "edition": "149ª",
+            "quantity": 13,
+            "registered": "05/09/2023",
+            "author": "Neil Gaiman",
+            "edition": "1ª",
             "copies": 10,
             "type": "Comum"
         },
         {
-            "id" : "3",
-            "title": "Vidas Secas",
-            "cover": "https://www.record.com.br/wp-content/uploads/2019/07/16406-600x927.jpeg",
-            "genre": "Romance brasileiro",
+            "id" : "1",
+            "title": "Coraline",
+            "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
+            "genre": "Terror",
             "status":{
                 "name": "Emprestado",
                 "since": "24/08/2023",
-                "until": "30/08/2023"
+                "until": "30/08/2023",
+                "description": "Para Maria Silva, com previsão de entrega no dia 15/08/2023"
             },
-            "author": "Graciliano Ramos",
-            "edition": "149ª",
+            "quantity": 13,
+            "registered": "05/09/2023",
+            "author": "Neil Gaiman",
+            "edition": "1ª",
             "copies": 10,
             "type": "Comum"
         }
