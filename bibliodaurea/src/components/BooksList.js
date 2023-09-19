@@ -1,25 +1,43 @@
 //Scripts, styles
-import {useState, useCallback } from 'react';
+import {useState, useCallback, useEffect } from 'react';
 import styles from './css/booksList.module.css';
 
 //Components
 import BookData from './BookData';
 
+//Database
+import app from './../firebaseConfig/index.js';
+import { onValue } from 'firebase/database';
+import { getDatabase, ref, get, child } from 'firebase/database';
+
+const db = getDatabase(app);
+
 function BooksList(){
     const [booksList, setBooksList] = useState([])
     const [selectedBookId, setSelectedBookId] = useState(null);
 
-    fetch("http://localhost:5000/books", {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json'
+    useEffect(() => {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+          
+            if (bookSnapshot.exists()) {
+              const books = bookSnapshot.val();
+              setBooksList(books);
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
         }
-    })
-    .then((resp) => resp.json())
-    .then((data) => {
-        setBooksList(data);
-    })
-    .catch((err) => console.log(err));
+        fetchData();
+      }, []);
+
+      function handleBookClick(bookId) {
+        setSelectedBookId(bookId);
+      }
 
     function Books({BooksList, OpenPopUp}){
         return (
@@ -48,7 +66,7 @@ function BooksList(){
                     </thead>
                     <tbody>
                         {booksList.map((book, index) => (
-                            <tr key={index} onClick={setSelectedBookId(book.id)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                            <tr key={index} onClick={() => handleBookClick(book.id)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround : ''}`}> {book.id} </td>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> <img width="60px" src={book.cover} alt={book.title} /> </td>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
@@ -65,17 +83,14 @@ function BooksList(){
                     </tbody>
                 </table>
             </div>
+            {selectedBookId && <BookData bookId={selectedBookId} />}
         </div>
         )
     }
 
     return(
         <div>
-            <Books BooksList={BooksList}/>
-            
-            {selectedBookId}
-                <BookData bookId={selectedBookId}/>
-          
+            <Books BooksList={BooksList}/> 
         </div>
     )
 }

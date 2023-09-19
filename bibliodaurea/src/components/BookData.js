@@ -9,24 +9,37 @@ import editIcon from '../img/editIcon.png';
 import Cape01 from '../dbimg/cape01.png';
 import historyIcon from '../img/historyIcon.png';
 
-function BookData(bookId){
-    const [BookInfo, setBookInfo] = useState(null);
-    
-    useEffect(() => {
-        // Faça um fetch dos detalhes do livro com base no bookId
-        fetch(`http://localhost:5000/books/${bookId}`, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then((resp) => resp.json())
-        .then((data) => {
-            setBookInfo(data);
-        })
-        .catch((err) => console.log(err))}, [bookId]);
+//Database
+import app from './../firebaseConfig/index.js';
+import { onValue } from 'firebase/database';
+import { getDatabase, ref, get, child } from 'firebase/database';
 
-        
+const db = getDatabase(app);
+
+function BookData(bookId){
+    const [BookInfo, setBookInfo] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books/' + bookId.bookId); // Substitua "bookId" pelo ID do livro que você deseja recuperar
+            console.log(bookId);
+            const bookSnapshot = await get(booksRef);
+          
+            if (bookSnapshot.exists()) {
+              const book = bookSnapshot.val();
+              setBookInfo(book);
+            } else {
+              console.log('Livro não encontrado.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados do livro:', error);
+          }
+        }
+      
+        fetchData();
+      }, []);
+
     return (
         <div>
             {BookInfo && (
@@ -54,21 +67,21 @@ function BookData(bookId){
 
                 <div className={styles.DataLine1}>
                     <div className={styles.BlockData}>
-                        <label for="id">Rótulo</label>
+                        <label htmlFor="id">Rótulo</label>
                         <div id={styles.id} name="id">{props.id}</div>
                     </div>
 
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label for="genre">Gênero</label>
+                        <label htmlFor="genre">Gênero</label>
                         <div id={styles.genre} name="genre">{props.genre}</div>
                     </div>
 
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label for="author">Autor</label>
+                        <label htmlFor="author">Autor</label>
                         <div id={styles.author} name="author">{props.author}</div>
                     </div>
                 </div>
