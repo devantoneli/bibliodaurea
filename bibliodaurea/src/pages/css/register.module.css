@@ -9,18 +9,12 @@
     box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
 }
 
+/*formulario*/
 
-
-
-
-
-
-
-
-
-
-
-
+form {
+    width: 100%;
+    margin: 0 auto;
+  }
 
 
 .Formregister{
@@ -31,7 +25,7 @@
 
 .inputForm{
     display: flex;
-    width: 40em;
+    width:40em ;
     height: 3em;
     border-radius: 5px;
     border: none;
@@ -39,6 +33,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
+
 
 .buttonregister{
     width: 20em;
@@ -50,9 +45,86 @@
     color: white;
     font-size: 1em;
     margin-left: -10em;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     cursor: pointer;
 }
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1600px){
+    .inputForm{
+        width: 40em;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+}
+
+@media screen and (max-width: 1440px){
+    .inputForm{
+        width: 40em;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+
+    }
+    
+
+@media screen and (max-width: 1280px){
+    .inputForm{
+        width: 30em;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+}
+
+
+@media screen and (max-width: 1152px){
+    .inputForm{
+        width: 20em;
+        margin-left:-100px;
+    }
+    .buttonregister{
+       margin-left: -20em;
+    }
+    .max{
+        margin-left: -10em;
+    }
+   
+}
+
+@media screen and (max-width: 800px){
+    .inputForm{
+        width: 30em;
+        margin-left:-550px;
+       
+    }  
+    .buttonregister{
+       margin-left: -32em;
+    }
+    .max{
+        width: 50em;
+        margin-left: -7em;
+    }
+    form{
+        margin-top: 35em;
+    }
+    .FormBooks{
+        height: 1300px;
+    }
+}
+
+
+
 
 
 
@@ -79,10 +151,9 @@
     border: none;
     margin-left: 20em;
     margin-top:80px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 20px;
     cursor: pointer;
-
     background-image: url('../../img/photo.png');
     background-repeat: no-repeat;
     background-position: center;
