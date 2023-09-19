@@ -6,8 +6,8 @@ import React, { useState, useEffect } from 'react';
 
 //Images
 import editIcon from '../img/editIcon.png';
-import Cape01 from '../dbimg/cape01.png';
 import historyIcon from '../img/historyIcon.png';
+import closeIcon from '../img/closeIcon.png';
 
 //Database
 import app from './../firebaseConfig/index.js';
@@ -22,7 +22,7 @@ function BookData(bookId){
     useEffect(() => {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books/' + bookId.bookId); // Substitua "bookId" pelo ID do livro que você deseja recuperar
+            const booksRef = ref(db, 'books/' + 1); // Substitua "bookId" pelo ID do livro que você deseja recuperar
             console.log(bookId);
             const bookSnapshot = await get(booksRef);
           
@@ -43,7 +43,7 @@ function BookData(bookId){
     return (
         <div>
             {BookInfo && (
-            <PopData id={BookInfo.id} title={BookInfo.title} cover={BookInfo.cover} genre={BookInfo.genre} author={BookInfo.author} name={BookInfo.name} since={BookInfo.since} copies={BookInfo.copies} quantity={BookInfo.quantity} description={BookInfo.description} registered={BookInfo.registered} type={BookInfo.type} edition={BookInfo.edition}/>
+            <PopData id={BookInfo.id} title={BookInfo.title} cover={BookInfo.cover} genre={BookInfo.genre} author={BookInfo.author} name={BookInfo.status} since={BookInfo.since} copies={BookInfo.copies} quantity={BookInfo.quantity} description={BookInfo.description} registered={BookInfo.registered} type={BookInfo.type} edition={BookInfo.edition} until={BookInfo.until}/>
             )}
         </div>
         )
@@ -60,8 +60,8 @@ function BookData(bookId){
                 <div className={styles.TopDataList}>
                 <h1 className={styles.BookTitle}>{props.title}</h1>
 
-                <button className={styles.EditBButton}>
-                    <img src={editIcon} />
+                <button className={styles.CloseBButton}>
+                    <img src={closeIcon} />
                 </button>
                 </div>
 
@@ -123,6 +123,13 @@ function BookData(bookId){
                     <hr />
 
                     <div className={styles.BlockData}>
+                        <label>Até</label>
+                        <div id={styles.until} name="until">{props.until}</div>
+                    </div>
+
+                    <hr />
+
+                    <div className={styles.BlockData}>
                         <label>Adquirido em</label>
                         <div id={styles.registered} name="registered">{props.registered}</div>
                     </div>
@@ -134,7 +141,7 @@ function BookData(bookId){
                         <div id={styles.type} name="type">{props.type}</div>
                     </div>
 
-                    <hr />
+                    <hr style={{ margin: '19px 10px' }} />
 
                     <div className={styles.BlockData}>
                         <label>Edição</label>
@@ -148,6 +155,10 @@ function BookData(bookId){
                     </button>
 
                     <button className={styles.ToLoan}>Emprestar</button>
+
+                    <button className={styles.EditBButton}>
+                    <img src={editIcon} />
+                    </button>
                 </div>
             </div>
         </div>

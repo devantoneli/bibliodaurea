@@ -72,11 +72,11 @@ function BooksList(){
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
 
                             <td className={`${styles.TdBList}`}>
-                                <button className={book.status.name == "Disponível" ? styles.Avaliable : book.status.name == "Indisponível" ? styles.Unvaliable : book.status.name == "Bloqueado" ? styles.Blocked : book.status.name == "Extraviado" ? styles.Lost : book.status.name == "Emprestado" ? styles.Borrowed : "Status indefinido"}>{book.status.name}</button>
+                                <button className={book.status == "Disponível" ? styles.Avaliable : book.status == "Indisponível" ? styles.Unvaliable : book.status == "Bloqueado" ? styles.Blocked : book.status == "Extraviado" ? styles.Lost : book.status == "Emprestado" ? styles.Borrowed : "Status indefinido"}>{book.status}</button>
                             </td>
 
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.genre} </td>
-                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.status.description} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.description} </td>
                             </tr>
                         ))}
 
@@ -96,16 +96,3 @@ function BooksList(){
 }
 
 export default BooksList;
-
-{/*                     {booksList.map((book, index) => (
-                        <tr key={index} className={styles.LightLine}>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{index + 1}</td>
-                            <td className={styles.TdBList}><img width="60px" src={book.coverImage} alt={book.title} /></td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.title}</td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>
-                            <button className={styles.Avaliable}>{book.status.name}</button>
-                            </td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.genre}</td>
-                            <td className={`${styles.TdBList} ${styles.GreenFont}`}>{book.status.description}</td>
-                        </tr>
-                    ))}> */}

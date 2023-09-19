@@ -4,6 +4,10 @@
     background-color: white;
     padding: 30px;
     padding-bottom: 35px;
+    position: absolute;
+    z-index: 3;
+    top: 18%;
+    left: 17.8%;
 }
 
 .BookData hr{
@@ -27,19 +31,25 @@
     width: 320px;
 }
 
-.EditBButton {
-    width: 60px;
-    height: 60px;
+.EditBButton img{
+    width: 50px;
+    height: 50px;
+}
+
+.CloseBButton {
+    width: 40px;
+    height: 40px;
     padding: 0px;
     border: none;
     background: none;
     position: absolute;
-    right: 45px;
+    right: 30px;
+    top: 40px;
 }
 
-.EditBButton img{
-    width: 50px;
-    height: 50px;
+.CloseBButton img{
+    width: 20px;
+    height: 20px;
 }
 
 .DataLine1 {
@@ -85,6 +95,13 @@
     border: none;
     position: absolute;
     right: 200px;
+}
+
+.EditBButton {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 256px;
 }
 
 .ToLoan {
@@ -184,7 +201,7 @@
 }
 
 #description {
-    width: 440px;
+    width: 280px;
     font-weight: 500;
     color: #037e7e;
     font-size: 1.1em;
@@ -198,13 +215,20 @@
 }
 
 #type {
-    width: 150px;
+    width: 120px;
     font-weight: 500;
     color: #037e7e;
     font-size: 1.1em;
 }
 
 #edition {
+    width: 150px;
+    font-weight: 500;
+    color: #037e7e;
+    font-size: 1.1em;
+}
+
+#until {
     width: 150px;
     font-weight: 500;
     color: #037e7e;
