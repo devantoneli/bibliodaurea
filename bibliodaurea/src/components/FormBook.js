@@ -5,35 +5,46 @@ function FormBook(){
       <div className={styles.container}>
         <form>
       
-        <label>
-           
-        
-      <input className={styles.inputForm} type="text" name="name" placeholder='Título:'/><br></br>
-        </label>
+        <div className={styles.inputForm}>
+          <label>Título:</label>
+          <input className={styles.inputValue1} type="text" name="title"/><br></br>
+        </div>
+
         <br></br>
-        <label>
-        <input className={styles.inputForm} type="text" name="name" placeholder='Gênero:'/><br></br>
-        </label>
+
+        <div className={styles.inputForm}>
+          <label>Gênero:</label>
+          <input className={styles.inputValue1} type="text" name="gender"/><br></br>
+        </div>
+
         <br></br>
-        <label>
-         
-          <input className={styles.inputForm} type="text" name="name" placeholder='Autor:' /><br></br>
-        </label>
+
+        <div className={styles.inputForm}>
+         <label>Autor:</label>
+          <input className={styles.inputValue1} type="text" name="author" /><br></br>
+        </div>
+
         <br></br>
-        <label>
-         
-          <input className={styles.inputForm}  type="text" name="name" placeholder='Edição:'/><br></br>
-        </label>
+
+        <div className={styles.inputForm}>
+         <label>Edição:</label>
+          <input className={styles.inputValue1}  type="text" name="edition"/><br></br>
+        </div>
+
         <br></br>
-        <label>
-          
-          <input className={styles.inputForm}  type="number" name="name" placeholder='N° de exemplares:'/><br></br>
-        </label>
+
+        <div className={styles.inputForm}>
+          <label>N°Exemplares:</label>
+          <input className={styles.inputValue}  type="number" name="copies"/><br></br>
+        </div>
+
         <br></br>
-        <label>
-          
-          <input className={styles.inputForm}  type="text" name="name"  placeholder=' Tipo de Livro:'/><br></br>
-        </label>
+
+        <div className={styles.inputForm}>
+          <label>Tipo de Livro:</label>
+          <input className={styles.inputValue2}  type="text" name="typeBook"/><br></br>
+        </div>
+
         <button className={styles.buttonregister}>Cadastrar</button>
         
       </form>

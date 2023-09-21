@@ -1,7 +1,7 @@
 .FormBooks{
     display: flex;
     width:1084;
-    height: 700px;
+    height: 750px;
     margin-top: 100px;
     margin-left: 30px;
     border-radius:10px;
@@ -20,7 +20,7 @@ form {
 .Formregister{
     display:flex;
     margin-left:20em;
-    margin-top: 6em;
+    margin-top: 8em;
 }
 
 .inputForm{
@@ -36,17 +36,19 @@ form {
 
 
 .buttonregister{
-    width: 20em;
-    height: 3em;
-    margin-top: 2rem;
+    width: 15em;
+    height: 2em;
+    margin-top: 5rem;
     border-radius: 10px;
     border: none;
     background-color: #4ae2fd;
     color: white;
-    font-size: 1em;
+    font-size: 1.5em;
     margin-left: -10em;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     cursor: pointer;
+    font-weight: bold;
+    
 }
 
 .container{
@@ -57,7 +59,7 @@ form {
 
 @media screen and (max-width: 1600px){
     .inputForm{
-        width: 40em;
+        width: 30em;
         margin-left:-100px;
     }
     .max{
@@ -75,6 +77,16 @@ form {
     }
 
     }
+
+    @media screen and (max-width: 1300px){
+        .inputForm{
+            width: 25em !important;
+            margin-left:-100px;
+        }
+        .max{
+            margin-left: -10em;
+        }
+      }
     
 
 @media screen and (max-width: 1280px){
@@ -109,10 +121,10 @@ form {
        
     }  
     .buttonregister{
-       margin-left: -32em;
+       margin-left: -22em;
     }
     .max{
-        width: 50em;
+        width: 30em;
         margin-left: -7em;
     }
     form{
@@ -121,6 +133,47 @@ form {
     .FormBooks{
         height: 1300px;
     }
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/Outfit.ttf');
+}
+
+.inputForm label{
+    font-weight: bold;
+    padding: 0.50em;
+    font-family: 'Outfit';
+    font-size: 1.3em ;
+    color:#037e7e;
+}
+
+.BookInput label{
+    top:50%;
+    position: relative;
+    transform: translateY(-50%);
+
+}
+.inputValue{
+    background: none;
+    border: none;
+    width: 50em;
+    
+    
+   
+   
+}
+.inputValue1{
+    background: none;
+    border: none;
+    width: 600px;
+   
+}
+.inputValue2{
+    background: none;
+    border: none;
+    width:35em ;
+    margin-left:1.2em;
 }
 
 
@@ -167,6 +220,8 @@ form {
     height: 100%;
     margin-left: -5px;
 }
+
+
 
 
 
