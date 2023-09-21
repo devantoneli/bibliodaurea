@@ -5,7 +5,7 @@
             "id" : "1",
             "title": "Coraline",
             "cover": "https://th.bing.com/th/id/R.a3b54303d933861aafd4b0815f7903dd?rik=Ifi0Bd12yD4RUw&pid=ImgRaw&r=0",
-            "genre": "Terror",
+            "gender": "Terror",
             "status":{
                 "name": "Emprestado",
                 "since": "24/08/2023",

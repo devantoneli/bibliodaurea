@@ -3,6 +3,7 @@ import styles from './css/bookData.module.css';
 
 //Script
 import React, { useState, useEffect } from 'react';
+import ReactModal from 'react-modal';
 
 //Images
 import editIcon from '../img/editIcon.png';
@@ -16,14 +17,14 @@ import { getDatabase, ref, get, child } from 'firebase/database';
 
 const db = getDatabase(app);
 
-function BookData(bookId){
-    const [BookInfo, setBookInfo] = useState([])
+function BookData(props){
+    const [BookInfo, setBookInfo] = useState([]);
+    const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books/' + 1); // Substitua "bookId" pelo ID do livro que você deseja recuperar
-            console.log(bookId);
+            const booksRef = ref(db, 'books/' + props.bookId); // Substitua "bookId" pelo ID do livro que você deseja recuperar
             const bookSnapshot = await get(booksRef);
           
             if (bookSnapshot.exists()) {
@@ -36,15 +37,19 @@ function BookData(bookId){
             console.error('Erro ao buscar dados do livro:', error);
           }
         }
-      
         fetchData();
       }, []);
+
+      const handleClose = () => {
+        props.onClose();
+      };
 
     return (
         <div>
             {BookInfo && (
-            <PopData id={BookInfo.id} title={BookInfo.title} cover={BookInfo.cover} genre={BookInfo.genre} author={BookInfo.author} name={BookInfo.status} since={BookInfo.since} copies={BookInfo.copies} quantity={BookInfo.quantity} description={BookInfo.description} registered={BookInfo.registered} type={BookInfo.type} edition={BookInfo.edition} until={BookInfo.until}/>
-            )}
+            <ReactModal className={styles.BookDataModal} isOpen={props.isOpen} onRequestClose={handleClose} contentLabel="Detalhes do livro selecionado">
+                <PopData id={BookInfo.id} title={BookInfo.title} cover={BookInfo.cover} gender={BookInfo.gender} author={BookInfo.author} name={BookInfo.status} since={BookInfo.since} copies={BookInfo.copies} quantity={BookInfo.quantity} description={BookInfo.description} registered={BookInfo.registered} type={BookInfo.type} edition={BookInfo.edition} until={BookInfo.until} onClose={() => setIsOpen(false)}/>
+            </ReactModal>)}
         </div>
         )
 
@@ -60,7 +65,7 @@ function BookData(bookId){
                 <div className={styles.TopDataList}>
                 <h1 className={styles.BookTitle}>{props.title}</h1>
 
-                <button className={styles.CloseBButton}>
+                <button className={styles.CloseBButton} onClick={props.onClose}>
                     <img src={closeIcon} />
                 </button>
                 </div>
@@ -74,8 +79,8 @@ function BookData(bookId){
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label htmlFor="genre">Gênero</label>
-                        <div id={styles.genre} name="genre">{props.genre}</div>
+                        <label htmlFor="gender">Gênero</label>
+                        <div id={styles.gender} name="gender">{props.gender}</div>
                     </div>
 
                     <hr />

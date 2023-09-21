@@ -1,12 +1,13 @@
 .MenuBList {
     display: flex;
-    flex-direction: row;
     flex-wrap: inherit;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .MenuBActive {
     background-color: rgb(255, 255, 255) !important;
-    z-index: 3;
+    z-index: 0;
     color: #037E7E !important;
 }
 
@@ -21,16 +22,16 @@
     color: gray;
 }
 
+.MenuBFour {
+    z-index: 0;
+}
+
 .MenuBTwo {
-    z-index: 2;
+    z-index: 0;
 }
 
 .MenuBThree {
-    z-index: 1;
-}
-
-.MenuBFour {
-    z-index: 0.5;
+    z-index: 0;
 }
 
 .ListBase {
@@ -40,7 +41,7 @@
     border-radius: 10px;
     border-top-left-radius: 0px;
     margin-top: -24px;
-    z-index: 3;
+    z-index: 0;
     position: relative;
 }
 
@@ -119,7 +120,7 @@
     width: 70px;
 }
 
-.GenreBList {
+.GenderBList {
     width: 100px;
 }
 
