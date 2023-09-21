@@ -15,6 +15,7 @@ const db = getDatabase(app);
 function BooksList(){
     const [booksList, setBooksList] = useState([])
     const [selectedBookId, setSelectedBookId] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do pop-up
 
     useEffect(() => {
         async function fetchData() {
@@ -37,19 +38,24 @@ function BooksList(){
 
       function handleBookClick(bookId) {
         setSelectedBookId(bookId);
+        setIsModalOpen(true);
+      }
+    
+      function closeBookDataModal() {
+        setIsModalOpen(false); 
       }
 
     function Books({BooksList, OpenPopUp}){
         return (
         <div>
             <div className={styles.MenuBList}>
-                <h2 className={`${styles.OptionBList} ${styles.MenuBActive}`}>Todos</h2>
+              <h2 className={`${styles.OptionBList} ${styles.MenuBFour}`}>Indisponíveis</h2>
 
-                <h2 className={`${styles.OptionBList} ${styles.MenuBTwo}`}>Disponíveis</h2>
+              <h2 className={`${styles.OptionBList} ${styles.MenuBThree}`}>Emprestados</h2>
 
-                <h2 className={`${styles.OptionBList} ${styles.MenuBThree}`}>Emprestados</h2>
+              <h2 className={`${styles.OptionBList} ${styles.MenuBTwo}`}>Disponíveis</h2>
 
-                <h2 className={`${styles.OptionBList} ${styles.MenuBFour}`}>Indisponíveis</h2>
+              <h2 className={`${styles.OptionBList} ${styles.MenuBActive}`}>Todos</h2>
             </div>
 
             <div className={styles.ListBase}>
@@ -60,7 +66,7 @@ function BooksList(){
                             <th className={`${styles.ThBList} ${styles.CapeBList}`}>Capa</th>
                             <th className={`${styles.ThBList} ${styles.TitleBList}`}>Título</th>
                             <th className={`${styles.ThBList} ${styles.StatusBList}`}>Estado</th>
-                            <th className={`${styles.ThBList} ${styles.GenreBList}`}>Gênero</th>
+                            <th className={`${styles.ThBList} ${styles.GenderBList}`}>Gênero</th>
                             <th className={`${styles.ThBList} ${styles.DescriptionBList} ${styles.RightBorder}`}>Descrição do estado</th>
                         </tr>
                     </thead>
@@ -75,7 +81,7 @@ function BooksList(){
                                 <button className={book.status == "Disponível" ? styles.Avaliable : book.status == "Indisponível" ? styles.Unvaliable : book.status == "Bloqueado" ? styles.Blocked : book.status == "Extraviado" ? styles.Lost : book.status == "Emprestado" ? styles.Borrowed : "Status indefinido"}>{book.status}</button>
                             </td>
 
-                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.genre} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.gender} </td>
                             <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.description} </td>
                             </tr>
                         ))}
@@ -83,7 +89,7 @@ function BooksList(){
                     </tbody>
                 </table>
             </div>
-            {selectedBookId && <BookData bookId={selectedBookId} />}
+            {selectedBookId && <BookData onClose={closeBookDataModal} isOpen={isModalOpen} bookId={selectedBookId}/>}
         </div>
         )
     }
