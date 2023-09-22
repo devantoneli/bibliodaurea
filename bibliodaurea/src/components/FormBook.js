@@ -6,42 +6,42 @@ function FormBook(){
         <form>
       
         <div className={styles.inputForm}>
-          <label>Título:</label>
+          <label>Título</label>
           <input className={styles.inputValue1} type="text" name="title"/><br></br>
         </div>
 
         <br></br>
 
         <div className={styles.inputForm}>
-          <label>Gênero:</label>
+          <label>Gênero</label>
           <input className={styles.inputValue1} type="text" name="gender"/><br></br>
         </div>
 
         <br></br>
 
         <div className={styles.inputForm}>
-         <label>Autor:</label>
+         <label>Autor</label>
           <input className={styles.inputValue1} type="text" name="author" /><br></br>
         </div>
 
         <br></br>
 
         <div className={styles.inputForm}>
-         <label>Edição:</label>
+         <label>Edição</label>
           <input className={styles.inputValue1}  type="text" name="edition"/><br></br>
         </div>
 
         <br></br>
 
         <div className={styles.inputForm}>
-          <label>N°Exemplares:</label>
+          <label>N°Exemplares</label>
           <input className={styles.inputValue}  type="number" name="copies"/><br></br>
         </div>
 
         <br></br>
 
         <div className={styles.inputForm}>
-          <label>Tipo de Livro:</label>
+          <label>Tipo de Livro</label>
           <input className={styles.inputValue2}  type="text" name="typeBook"/><br></br>
         </div>
 
