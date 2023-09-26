@@ -74,6 +74,10 @@ form {
         width: 24.6em !important; 
         margin-left:-0.3em !important;
     }
+    .container2{
+        margin-left: -100px;
+        margin-top: 50%;
+    }
 }
 
 @media screen and (max-width: 1440px){
@@ -264,7 +268,7 @@ input:focus {
 }
 
 .container2{
-    margin-left: 100%;
+    margin-left: 70% !important;
     margin-top: 50%;
 }
 .buttonregister2{
@@ -284,6 +288,37 @@ input:focus {
 
 /* Responsive Register Students*/
 
+@media screen and (min-width: 1600px){
+   .container2{
+    margin-left: 70%;
+    margin-top: 25%;
+   }
+.buttonregister2{
+    margin-left: 5em !important; 
+}
+
+}
+
+@media screen and (max-width: 1300px){
+    .container2{
+        margin-left: 40em !important;
+        margin-top: 40% !important;
+       }
+    .buttonregister2{
+        margin-right: 2em; 
+    }
+}
+
+
+@media screen and (max-width: 1440px){
+    .container2{
+        margin-left: 85% !important;
+        margin-top: 25% !important;
+       }
+    .buttonregister2{
+        margin-left: -0.21em !important; 
+    }
+}
 
 
 
