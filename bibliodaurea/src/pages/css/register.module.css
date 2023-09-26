@@ -1,7 +1,5 @@
 /*Register Books*/
 
-
-
 .FormBooks{
     display: flex;
     width:1084;
@@ -31,25 +29,24 @@ form {
     display: flex;
     width:40em ;
     height: 3em;
-    border-radius: 5px;
+    border-radius: 13px;
     border: none;
     border: solid 3px #00BCDE;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
 
 }
-
 
 .buttonregister{
     width: 15em;
     height: 2.5em;
     margin-top: 5rem;
-    border-radius: 10px;
+    border-radius: 40px;
     border: none;
     background-color: #4ae2fd;
     color: white;
     font-size: 1.5em;
     margin-left: -10em;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.056) 0px 3px 6px, rgba(0, 0, 0, 0.09) 0px 3px 6px;
     cursor: pointer;
     font-weight: bold;
     
@@ -236,8 +233,8 @@ input:focus {
     border: none;
     margin-left: 20em;
     margin-top:80px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 3px 6px, rgba(0, 0, 0, 0.081) 0px 3px 6px;
+    border-radius: 40px;
     cursor: pointer;
     background-image: url('../../img/photo.png');
     background-repeat: no-repeat;

@@ -367,7 +367,9 @@
 }
 
 .InEditionInput {
+    border: none;
     border-radius: 5px;
+    font-family: 'Outfit';
 }
 
 .SaveBButton {
@@ -381,4 +383,23 @@
     cursor: pointer;
     width: 48px;
     height: 48px;
+}
+
+#ConfirmationMessage {
+    background-color: red;
+    color: green;
+    font-size: 2em;
+    position: absolute;
+    z-index: 3;
+}
+
+.StatusSelect {
+    height: 30px;
+    font-weight: 700;
+    font-family: 'Outfit';
+}
+
+.StatusSelect:focus-visible {
+    border: none;
+    outline: none;
 }

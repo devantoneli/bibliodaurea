@@ -12,7 +12,7 @@ import { getDatabase, ref, get, child } from 'firebase/database';
 
 const db = getDatabase(app);
 
-function BooksList(){
+function BooksList(props){
     const [booksList, setBooksList] = useState([]);
     const [selectedBookId, setSelectedBookId] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,25 +20,96 @@ function BooksList(){
     useEffect(() => {
       let unsubscribe;
   
-      async function fetchData() {
-        try {
-          const booksRef = ref(db, 'books');
-          const bookSnapshot = await get(booksRef);
-  
-          if (bookSnapshot.exists()) {
-            unsubscribe = onValue(booksRef, (snapshot) => {
-              const updatedData = snapshot.val();
-              setBooksList(updatedData);
-            });
-          } else {
-            console.log('Sem livros.');
+      if (props.filter==false){
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+    
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const updatedData = snapshot.val();
+                setBooksList(updatedData);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
           }
-        } catch (error) {
-          console.error('Erro ao buscar dados dos livros:', error);
         }
+        fetchData();
+      }else if (props.filter == 'Disponiveis') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+        
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Disponível');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
+      }else if (props.filter == 'Indisponiveis') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+        
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Indisponível');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
+      }else if (props.filter == 'Emprestados') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+        
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Emprestado');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
       }
   
-      fetchData();
   
       return () => {
         if (unsubscribe) {
@@ -59,16 +130,6 @@ function BooksList(){
     function Books({BooksList, OpenPopUp}){
         return (
         <div>
-            <div className={styles.MenuBList}>
-              <h2 className={`${styles.OptionBList} ${styles.MenuBFour}`}>Indisponíveis</h2>
-
-              <h2 className={`${styles.OptionBList} ${styles.MenuBThree}`}>Emprestados</h2>
-
-              <h2 className={`${styles.OptionBList} ${styles.MenuBTwo}`}>Disponíveis</h2>
-
-              <h2 className={`${styles.OptionBList} ${styles.MenuBActive}`}>Todos</h2>
-            </div>
-
             <div className={styles.ListBase}>
                 <table className={styles.BooksList}>
                     <thead className={styles.HeadBList}>
