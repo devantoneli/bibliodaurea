@@ -49,7 +49,7 @@ function BookData(props){
 
     const handleEditClick = () => {
         setIsEditMode(true);
-    };
+    };   
 
     return (
         <div>
@@ -60,7 +60,10 @@ function BookData(props){
         </div>
         )
 
-    function PopData(props) {  
+    function PopData(props) {
+        const [Confirm, setConfirm] = useState({
+            display: 'none'
+        }); 
         const [editedValues, setEditedValues] = useState({
             id: props.id,
             title: props.title,
@@ -82,12 +85,10 @@ function BookData(props){
             const db = getDatabase(app);
             const bookRef = ref(db, `books/${props.id}`);
      
-            // Use a função update para atualizar os campos específicos
             update(bookRef, editedValues)
             .then(() => {
-                console.log('Dados atualizados com sucesso.');
                 // Feche o modal ou realize qualquer ação necessária após a atualização
-                props.onClose();
+                // props.onClose();
             })
             .catch((error) => {
                 console.error('Erro ao atualizar dados:', error);
@@ -98,13 +99,16 @@ function BookData(props){
 
         return(
         <div className={`${styles.BookData} ${props.isEditMode ? styles.InEdition : ''}`}>
-
         <div className={styles.DataList}>
             <div className={styles.CapeImg}><img src={props.cover} /></div>
             
             <div className={styles.DataLines}>
                 <div className={styles.TopDataList}>
-                <h1 className={`${styles.BookTitle} ${props.isEditMode ? styles.InEdition : ''}`}>{props.title}</h1>
+                {props.isEditMode ? 
+                ( <input type="text" id={styles.title} className={`${styles.BookTitle} ${styles.InEditionInput}`} name="title" defaultValue={props.title} value={editedValues.title} onChange={(e) => setEditedValues({ ...editedValues, title: e.target.value })}/>) 
+                : ( <h1 className={`${styles.BookTitle} ${props.isEditMode ? styles.InEdition : ''}`}>{props.title}</h1>)
+                }
+                
 
                 <button className={styles.CloseBButton} onClick={props.onClose}>
                     <img src={closeIcon} />
@@ -132,7 +136,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label htmlFor="author" className={`${props.isEditMode ? styles.InEdition : ''}`}>Autor</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.author} className={styles.InEditionInput} name="author" defaultValue={props.author} />) 
+                          ( <input type="text" id={styles.author} className={styles.InEditionInput} name="author" defaultValue={props.author} value={editedValues.author} onChange={(e) => setEditedValues({ ...editedValues, author: e.target.value })}/>) 
                         : ( <div id={styles.author} name="author">{props.author}</div>)
                         }
                     </div>
@@ -142,7 +146,13 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Estado</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.status} className={styles.InEditionInput} name="status" defaultValue={props.status} />) 
+                          (   <select id={styles.status} className={`${styles.StatusSelect} ${styles.InEditionInput}`} name="status" value={editedValues.status} onChange={(e) => setEditedValues({ ...editedValues, status: e.target.value })}>
+                          <option value="Disponível">Disponível</option>
+                          <option value="Indisponível">Indisponível</option>
+                          <option value="Extraviado">Extraviado</option>
+                          <option value="Emprestado">Emprestado</option>
+                          <option value="Bloqueado">Bloqueado</option>
+                        </select>) 
                         : ( <div id={styles.status} name="status">{props.status}</div>)
                         }
                     </div>
@@ -152,7 +162,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Data do estado</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.since} className={styles.InEditionInput} name="since" defaultValue={props.since} />) 
+                          ( <input type="text" id={styles.since} className={styles.InEditionInput} name="since" defaultValue={props.since} value={editedValues.since} onChange={(e) => setEditedValues({ ...editedValues, since: e.target.value })}/>) 
                         : ( <div id={styles.since} name="since">{props.since}</div>)
                         }
                     </div>
@@ -162,7 +172,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Exemplares</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.copies} className={styles.InEditionInput} name="copies" defaultValue={props.copies} />) 
+                          ( <input type="text" id={styles.copies} className={styles.InEditionInput} name="copies" defaultValue={props.copies} value={editedValues.copies} onChange={(e) => setEditedValues({ ...editedValues, copies: e.target.value })}/>) 
                         : ( <div id={styles.copies} name="copies">{props.copies}</div>)
                         }
                     </div>
@@ -172,7 +182,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Qtd. Geral</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.quantity} className={styles.InEditionInput} name="quantity" defaultValue={props.quantity} />) 
+                          ( <input type="text" id={styles.quantity} className={styles.InEditionInput} name="quantity" defaultValue={props.quantity} value={editedValues.quantity} onChange={(e) => setEditedValues({ ...editedValues, quantity: e.target.value })}/>) 
                         : ( <div id={styles.quantity} name="quantity">{props.quantity}</div>)
                         }
                     </div>
@@ -182,7 +192,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Descrição do estado</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.description} className={styles.InEditionInput} name="description" defaultValue={props.description} />) 
+                          ( <input type="text" id={styles.description} className={styles.InEditionInput} name="description" defaultValue={props.description} value={editedValues.description} onChange={(e) => setEditedValues({ ...editedValues, description: e.target.value })}/>) 
                         : ( <div id={styles.description} name="description">{props.description}</div>)
                         }
                     </div>
@@ -192,7 +202,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Até</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.until} className={styles.InEditionInput} name="until" defaultValue={props.until} />) 
+                          ( <input type="text" id={styles.until} className={styles.InEditionInput} name="until" defaultValue={props.until} value={editedValues.until} onChange={(e) => setEditedValues({ ...editedValues, until: e.target.value })}/>) 
                         : ( <div id={styles.until} name="until">{props.until}</div>)
                         }
                     </div>
@@ -202,7 +212,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Adquirido em</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.registered} className={styles.InEditionInput} name="registered" defaultValue={props.registered} />) 
+                          ( <input type="text" id={styles.registered} className={styles.InEditionInput} name="registered" defaultValue={props.registered} value={editedValues.registered} onChange={(e) => setEditedValues({ ...editedValues, registered: e.target.value })}/>) 
                         : ( <div id={styles.registered} name="registered">{props.registered}</div>)
                         }
                     </div>
@@ -212,7 +222,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Tipo de livro</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.type} className={styles.InEditionInput} name="type" defaultValue={props.type} />) 
+                          ( <input type="text" id={styles.type} className={styles.InEditionInput} name="type" defaultValue={props.type} value={editedValues.type} onChange={(e) => setEditedValues({ ...editedValues, type: e.target.value })}/>) 
                         : ( <div id={styles.type} name="type">{props.type}</div>)
                         }
                     </div>
@@ -222,7 +232,7 @@ function BookData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Edição</label>
                                                 {props.isEditMode ? 
-                          ( <input type="text" id={styles.edition} className={styles.InEditionInput} name="edition" defaultValue={props.edition} />) 
+                          ( <input type="text" id={styles.edition} className={styles.InEditionInput} name="edition" defaultValue={props.edition} value={editedValues.edition} onChange={(e) => setEditedValues({ ...editedValues, edition: e.target.value })}/>) 
                         : ( <div id={styles.edition} name="edition">{props.edition}</div>)
                         }
 
@@ -245,7 +255,9 @@ function BookData(props){
                 </div>
                 
                 <div className={styles.DataLine5}>
-
+                    <div style={Confirm}>
+                        Dados atualizados com sucesso!
+                    </div>
                 </div>
             </div>
         </div>
