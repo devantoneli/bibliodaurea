@@ -17,7 +17,7 @@ function ConsultBooks(){
 
     return(
         <div>
-            <SearchForm view="Consultar Livros" name="Profª Graça" src="../img/searchIcon.png"/>
+            <SearchForm view="Consultar Livros" search={true} />
             <div className={styles.MenuBList}>
               <h2 onClick={() => handleClickFiltro('Indisponiveis')} className={`${styles.OptionBList} ${styles.MenuBFour} ${filterActive === 'Indisponiveis' ? styles.MenuBActive : styles.MenuB}`}>Indisponíveis</h2>
 
