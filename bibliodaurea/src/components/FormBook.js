@@ -21,7 +21,7 @@ function FormBook(){
 
         <div className={styles.inputForm}>
          <label>Autor</label>
-          <input className={styles.inputValue1} type="text" name="author" /><br></br>
+          <input className={styles.inputValue1} type="text" name="author"/><br></br>
         </div>
 
         <br></br>
@@ -49,12 +49,13 @@ function FormBook(){
         
       </form>
       </div>
+
+      
       
         )
 }
 
 
+export default FormBook;
 
-
- export default FormBook
 

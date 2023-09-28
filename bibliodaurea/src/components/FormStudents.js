@@ -5,28 +5,28 @@ function FormStudents(){
       <div className={styles.container2}>
         <form>
       
-        <div className={styles.inputForm}>
+        <div className={styles.inputForm2}>
           <label>Nome</label>
           <input className={styles.inputValue1} type="text" name="Name"/><br></br>
         </div>
 
         <br></br>
 
-        <div className={styles.inputForm}>
+        <div className={styles.inputForm2}>
           <label>Turma</label>
           <input className={styles.inputValue1} type="text" name="class"/><br></br>
         </div>
 
         <br></br>
 
-        <div className={styles.inputForm}>
+        <div className={styles.inputForm2}>
          <label>Celular</label>
           <input className={styles.inputValue1} type="phone" name="phone" /><br></br>
         </div>
 
         <br></br>
 
-        <div className={styles.inputForm}>
+        <div className={styles.inputForm2}>
          <label>RA</label>
           <input className={styles.inputValue1}  type="number" name="ra"/><br></br>
         </div>
