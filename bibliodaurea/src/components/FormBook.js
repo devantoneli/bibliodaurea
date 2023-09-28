@@ -18,13 +18,48 @@ function FormBook(){
     copies: 0,
     id: '' // Adicione um campo "id" vazio para rastrear o ID gerado automaticamente
   });
-  
+
+  //CONST'S FILE
   const fileInputRef = useRef(null);
+
+  const handleCustomButtonClick = () => {
+    // Aciona o clique no input de arquivo quando o botão personalizado é clicado
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (e) => {
+  const file = e.target.files[0];
+  //CODE'S FILE
+  if (file) {
+    var fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      document.getElementById("photo").src = e.target.result;
+      let linkCapa = e.target.result;
+      console.log(linkCapa);
+      document.getElementById("linkImg").value = linkCapa;
+      // Oculta o input de arquivo após o carregamento da imagem
+      fileInputRef.current.style.display = 'none';
+    };
+    fileReader.readAsDataURL(file);
+    // Atualiza a visibilidade da imagem
+    document.getElementById("photo").style.opacity = '1';
+
+    console.log('Arquivo selecionado:', file.name);
+
+    setBookData({
+      ...bookData,
+      cover: file.name,
+    });
+    console.log(bookData)
+  }
+};
 
   const setSelectedFile = (file) => {
     setBookData({
       ...bookData,
-      cover: file, // Atualize o campo "cover" com o arquivo selecionado
+      cover: file.name, // Atualize o campo "cover" com o arquivo selecionado
     });
   };
 
@@ -47,6 +82,7 @@ function FormBook(){
 
       // Insira os dados do livro, incluindo o ID, no banco de dados
       await set(newBookRef, bookData);
+      console.log(bookData);
 
       // Limpar o formulário após o registro bem-sucedido
       setBookData({
@@ -90,7 +126,20 @@ function FormBook(){
 
     return (
       <div className={styles.container}>
-        <form onSubmit={handleSubmit}>  
+        <form onSubmit={handleSubmit}>
+          <div>
+            <div className={styles.container}>
+              <div className={styles.max}>
+                <button type="button" className={styles.imageContainer} id="fileButton" onClick={handleCustomButtonClick}>
+                  <img src="" id="photo" alt='Selecione uma imagem' className={styles.PhotoBook}/>
+
+                  <input id="linkImg" value={bookData.cover} hidden/>
+
+                  <input type="file" name="cover" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} required/>
+                </button>
+              </div>
+            </div>
+          </div>  
 
           <div className={styles.textsInputs}>
             <div className={styles.inputForm}>
