@@ -1,23 +1,32 @@
 //Script
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 //Styles
 import styles from '../pages/css/register.module.css';
 
 //Database
 import app from './../firebaseConfig/index.js';
-import { ref, push } from 'firebase/database';
+import { ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
 
 function FormBook(){
   const [bookData, setBookData] = useState({
     title: '',
     genre: '',
     author: '',
+    cover: '',
     edition: '',
     copies: 0,
-    typeBook: '',
     id: '' // Adicione um campo "id" vazio para rastrear o ID gerado automaticamente
   });
+  
+  const fileInputRef = useRef(null);
+
+  const setSelectedFile = (file) => {
+    setBookData({
+      ...bookData,
+      cover: file, // Atualize o campo "cover" com o arquivo selecionado
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,9 +53,9 @@ function FormBook(){
         title: '',
         genre: '',
         author: '',
+        cover: '',
         edition: '',
         copies: 0,
-        typeBook: '',
         id: ''
       });
 
@@ -58,58 +67,74 @@ function FormBook(){
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setBookData({
-      ...bookData,
-      [name]: value,
-    });
+  
+    // Se o campo que está sendo alterado for o campo de arquivo (cover), 
+    // atualize o objeto bookData com o arquivo selecionado em vez de apenas o valor
+    console.log(name)
+    if (name === 'cover') {
+      const selectedFile = e.target.files[0];
+      console.log("TA NO COVER");
+      setBookData({
+        ...bookData,
+        [name]: selectedFile, // Use o arquivo selecionado em vez do valor
+      });
+    } else {
+      console.log("NAO TA NO COVER");
+      setBookData({
+        ...bookData,
+        [name]: value,
+      });
+    }
   };
+  
 
     return (
       <div className={styles.container}>
-        <form onSubmit={handleSubmit}>
-      
-        <div className={styles.inputForm}>
-          <label>Título</label>
-          <input className={styles.inputValue1} type="text" name="title" value={bookData.title} onChange={handleInputChange} required/><br></br>
-        </div>
+        <form onSubmit={handleSubmit}>  
 
-        <br></br>
+          <div className={styles.textsInputs}>
+            <div className={styles.inputForm}>
+              <label>Título</label>
+              <input className={styles.inputValue1} type="text" name="title" value={bookData.title} onChange={handleInputChange} required/><br></br>
+            </div>
 
-        <div className={styles.inputForm}>
-          <label>Gênero</label>
-          <input className={styles.inputValue1} type="text" name="genre" value={bookData.genre} onChange={handleInputChange} required/><br></br>
-        </div>
+            <br></br>
 
-        <br></br>
+            <div className={styles.inputForm}>
+              <label>Gênero</label>
+              <input className={styles.inputValue1} type="text" name="genre" value={bookData.genre} onChange={handleInputChange} required/><br></br>
+            </div>
 
-        <div className={styles.inputForm}>
-         <label>Autor</label>
-          <input className={styles.inputValue1} type="text" name="author" value={bookData.author} onChange={handleInputChange} required/><br></br>
-        </div>
+            <br></br>
 
-        <br></br>
+            <div className={styles.inputForm}>
+            <label>Autor</label>
+              <input className={styles.inputValue1} type="text" name="author" value={bookData.author} onChange={handleInputChange} required/><br></br>
+            </div>
 
-        <div className={styles.inputForm}>
-         <label>Edição</label>
-          <input className={styles.inputValue1}  type="text" name="edition" value={bookData.edition} onChange={handleInputChange} required/><br></br>
-        </div>
+            <br></br>
 
-        <br></br>
+            <div className={styles.inputForm}>
+            <label>Edição</label>
+              <input className={styles.inputValue1}  type="text" name="edition" value={bookData.edition} onChange={handleInputChange} required/><br></br>
+            </div>
 
-        <div className={styles.inputForm}>
-          <label>N°Exemplares</label>
-          <input className={styles.inputValue}  type="number" name="copies" value={bookData.copies} onChange={handleInputChange} required/><br></br>
-        </div>
+            <br></br>
 
-        <br></br>
+            <div className={styles.inputForm}>
+              <label>N°Exemplares</label>
+              <input className={styles.inputValue}  type="number" name="copies" value={bookData.copies} onChange={handleInputChange} required/><br></br>
+            </div>
 
-        <div className={styles.inputForm}>
-          <label>Tipo de Livro</label>
-          <input className={styles.inputValue2}  type="text" name="type" value={bookData.type} onChange={handleInputChange} required/><br></br>
-        </div>
+            <br></br>
 
-        <button className={styles.buttonregister} type="submit">Cadastrar</button>
-        
+            <div className={styles.inputForm}>
+              <label>Tipo de Livro</label>
+              <input className={styles.inputValue2}  type="text" name="type" value={bookData.type} onChange={handleInputChange} required/><br></br>
+            </div>
+
+            <button className={styles.buttonregister} type="submit">Cadastrar</button>
+          </div>
       </form>
       </div>
       

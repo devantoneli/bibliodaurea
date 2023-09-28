@@ -1,7 +1,9 @@
 import styles from '../pages/css/register.module.css';
-import React, { useRef } from 'react';
 
-function MeuComponente() {
+//Scripts
+import React, { useRef, useState } from 'react';
+
+function FileBook({cover, setCover, onChange}) {
   const fileInputRef = useRef(null);
 
   const handleCustomButtonClick = () => {
@@ -12,9 +14,11 @@ function MeuComponente() {
   };
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-  
-    if (selectedFile) {
+    const file = e.target.files[0];
+
+    if (file) {
+      setCover(file); // Define o arquivo selecionado no estado
+
       var fileReader = new FileReader();
       fileReader.onload = function (e) {
         document.getElementById("photo").src = e.target.result;
@@ -24,12 +28,17 @@ function MeuComponente() {
         // Oculta o input de arquivo após o carregamento da imagem
         fileInputRef.current.style.display = 'none';
       };
-      fileReader.readAsDataURL(selectedFile);
+      fileReader.readAsDataURL(file);
 
       // Atualiza a visibilidade da imagem
       document.getElementById("photo").style.opacity = '1';
 
-      console.log('Arquivo selecionado:', selectedFile.name);
+      console.log('Arquivo selecionado:', file.name);
+
+      // Chame a função onChange passada como prop
+      if (typeof onChange === 'function') {
+        onChange(file);
+      }
     }
   };
 
@@ -37,18 +46,17 @@ function MeuComponente() {
     <div>
       <div className={styles.container}>
         <div className={styles.max}>
-          <button className={styles.imageContainer} id="fileButton" onClick={handleCustomButtonClick}>
+          <button type="button" className={styles.imageContainer} id="fileButton" onClick={handleCustomButtonClick}>
             <img src="" id="photo" alt='Selecione uma imagem' className={styles.PhotoBook}/>
 
             <input id="linkImg" value="" hidden/>
 
-            <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange}/>
+            <input name="cover" type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange}/>
           </button>
         </div>
-        
       </div>
     </div>
   );
 }
 
-export default MeuComponente;
+export default FileBook;
