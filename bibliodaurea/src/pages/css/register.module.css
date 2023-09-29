@@ -1,4 +1,4 @@
-/*Register Books*/
+/*REGISTER BOOKS*/
 
 .FormBooks{
     display: flex;
@@ -163,7 +163,7 @@ form {
     src: url('../../fonts/Outfit.ttf');
 }
 
-/*Imput Form*/
+/*Input Form*/
 
 .inputForm label{
     font-weight: bold;
@@ -173,27 +173,35 @@ form {
     color:#037e7e;
 }
 
+.container form {
+    display: flex;
+}
+
+.textsInputs {
+    margin-left: 140px;
+}
+
 .BookInput label{
     top:50%;
     position: absolute;
     transform: translateY(-50%);
 
 }
+
 .inputValue{
     background: none;
     border: none;
     width: 50em;
-    
-    
-   
-   
+    font-size: 1.3em;
 }
+
 .inputValue1{
     background: none;
     border: none;
     width: 600px;
-   
+    font-size: 1.3em;
 }
+
 .inputValue2{
     background: none;
     border: none;
@@ -202,12 +210,8 @@ form {
 }
 
 input:focus {
-    
     outline: none;
 }
-
-
-
 
 /*InputFile*/
 
@@ -222,8 +226,12 @@ input:focus {
 }
 
 .imageContainer:hover{
-    background-color: #d2d3d5 ;
+    background-color: #a9a9a9 ;
 
+}
+
+.imageContainer {
+    background-color: #d2d3d5;
 }
 
 .imageContainer{
@@ -231,9 +239,9 @@ input:focus {
     width: 335px;
     height: 500px;
     background-color: none;
+    margin-top: -30px;
+    margin-left: -55px;
     border: none;
-    margin-left: 20em;
-    margin-top:80px;
     box-shadow: rgba(0, 0, 0, 0.075) 0px 3px 6px, rgba(0, 0, 0, 0.081) 0px 3px 6px;
     border-radius: 40px;
     cursor: pointer;
@@ -252,7 +260,7 @@ input:focus {
 }
 
 
-/*Register Students*/
+/*REGISTER STUDENTS*/
 
 .backgroundRegister{
     display: flex;

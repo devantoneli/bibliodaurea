@@ -7,7 +7,7 @@ function FormStudents(){
       
         <div className={styles.inputForm2}>
           <label>Nome</label>
-          <input className={styles.inputValue1} type="text" name="Name"/><br></br>
+          <input className={styles.inputValue1} type="text" name="name"/><br></br>
         </div>
 
         <br></br>
