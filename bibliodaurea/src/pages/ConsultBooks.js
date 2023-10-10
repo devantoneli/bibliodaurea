@@ -28,13 +28,13 @@ function ConsultBooks(){
               <h2 onClick={() => handleClickFiltro('Todos')} className={`${styles.OptionBList} ${filterActive === 'Todos' ? styles.MenuBActive : styles.MenuB}`}>Todos</h2>
             </div>
             <div className={styles.consultBooks}>
-                {filterActive === 'Todos' && <BooksList filter={false} />}
+                <BooksList />
 
-                {filterActive === 'Disponiveis' && <BooksList filter="Disponiveis" />}
+                {/* {filterActive === 'Disponiveis' && <BooksList filter="Disponiveis" />}
 
                 {filterActive === 'Emprestados' && <BooksList filter="Emprestado" />}
 
-                {filterActive === 'Indisponiveis' && <BooksList filter="Indisponível" />}
+                {filterActive === 'Indisponiveis' && <BooksList filter="Indisponível" />} */}
             </div>
         </div>
     )
