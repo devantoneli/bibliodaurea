@@ -30,6 +30,7 @@ function BooksList(props){
               unsubscribe = onValue(booksRef, (snapshot) => {
                 const updatedData = snapshot.val();
                 setBooksList(updatedData);
+                console.log(bookSnapshot)
               });
             } else {
               console.log('Sem livros.');
