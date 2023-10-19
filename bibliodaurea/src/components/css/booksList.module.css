@@ -9,6 +9,17 @@
     position: relative;
 }
 
+.ListBase2 {
+    background-color: white;
+    padding: 25px 25px;
+    box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    margin-top: -178px;
+    z-index: 0;
+    position: relative;
+}
+
 .BooksList {
     border-radius: 26px;
     background: linear-gradient(90deg, #3FD2EA 22.1%, #00EACE 109.16%);

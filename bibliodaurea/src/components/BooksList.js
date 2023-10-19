@@ -20,6 +20,7 @@ function BooksList(props){
     useEffect(() => {
       let unsubscribe;
   
+      if (props.filter==false){
         async function fetchData() {
           try {
             const booksRef = ref(db, 'books');
@@ -28,11 +29,9 @@ function BooksList(props){
             if (bookSnapshot.exists()) {
               unsubscribe = onValue(booksRef, (snapshot) => {
                 const updatedData = snapshot.val();
-                const updatedDataArray = Object.values(updatedData);
-                setBooksList(updatedDataArray);
-                console.log(updatedDataArray)
-                console.log('Tamanho de booksList:', updatedDataArray.length);
-              })
+                setBooksList(updatedData);
+                console.log(bookSnapshot)
+              });
             } else {
               console.log('Sem livros.');
             }
@@ -41,7 +40,78 @@ function BooksList(props){
           }
         }
         fetchData();
+      }else if (props.filter == 'Disponiveis') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
         
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Disponível');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
+      }else if (props.filter == 'Indisponiveis') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+        
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Indisponível');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
+      }else if (props.filter == 'Emprestados') {
+        async function fetchData() {
+          try {
+            const booksRef = ref(db, 'books');
+            const bookSnapshot = await get(booksRef);
+        
+            if (bookSnapshot.exists()) {
+              unsubscribe = onValue(booksRef, (snapshot) => {
+                const allBooks = snapshot.val();
+        
+                // Filtrar apenas os livros com status 'disponível'
+                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Emprestado');
+        
+                setBooksList(availableBooks);
+              });
+            } else {
+              console.log('Sem livros.');
+            }
+          } catch (error) {
+            console.error('Erro ao buscar dados dos livros:', error);
+          }
+        }
+        fetchData();
+      }
+  
+  
       return () => {
         if (unsubscribe) {
           unsubscribe();
