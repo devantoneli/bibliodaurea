@@ -1,3 +1,5 @@
+/*REGISTER BOOKS*/
+
 .FormBooks{
     display: flex;
     width:1084;
@@ -22,30 +24,30 @@ form {
     margin-left:20em;
     margin-top: 8em;
 }
+ 
 
 .inputForm{
     display: flex;
     width:40em ;
     height: 3em;
-    border-radius: 5px;
+    border-radius: 13px;
     border: none;
     border: solid 3px #00BCDE;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
 
 }
 
-
 .buttonregister{
     width: 15em;
-    height: 2em;
+    height: 2.5em;
     margin-top: 5rem;
-    border-radius: 10px;
+    border-radius: 40px;
     border: none;
     background-color: #4ae2fd;
     color: white;
     font-size: 1.5em;
     margin-left: -10em;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.056) 0px 3px 6px, rgba(0, 0, 0, 0.09) 0px 3px 6px;
     cursor: pointer;
     font-weight: bold;
     
@@ -56,35 +58,52 @@ form {
     margin: 0 auto;
 }
 
+/*responsive*/
 
 @media screen and (max-width: 1600px){
     .inputForm{
         width: 30em;
-        margin-left:-100px;
+        margin-left:-90px;
     }
     .max{
-        margin-left: -10em;
+        margin-left: -3em;
+    }
+    .inputValue2{
+        width: 24.6em !important; 
+        margin-left:-0.3em !important;
+    }
+    .container2{
+        margin-left: -100px;
+        margin-top: 50%;
     }
 }
 
 @media screen and (max-width: 1440px){
     .inputForm{
-        width: 40em;
+        width: 35em;
         margin-left:-100px;
     }
     .max{
         margin-left: -10em;
+    }
+    .inputValue2{
+        width: 30.6em !important; 
+        margin-left:-0.3em !important;
     }
 
     }
 
     @media screen and (max-width: 1300px){
         .inputForm{
-            width: 25em !important;
+            width: 30em !important;
             margin-left:-100px;
         }
         .max{
             margin-left: -10em;
+        }
+        .inputValue2{
+            width: 24.6em !important; 
+            margin-left:-0.3em !important;
         }
       }
     
@@ -99,29 +118,33 @@ form {
     }
 }
 
-
 @media screen and (max-width: 1152px){
     .inputForm{
-        width: 20em;
+        width: 15em !important;
         margin-left:-100px;
-    }
-    .buttonregister{
-       margin-left: -20em;
     }
     .max{
         margin-left: -10em;
     }
-   
+    
+    .inputValue2{
+        width:12.6em !important; 
+        margin-left:-0.3em !important;
+    }
+    .inputValue{
+        width:11.3em !important; 
+    }
 }
+
 
 @media screen and (max-width: 800px){
     .inputForm{
         width: 30em;
-        margin-left:-550px;
+        margin-left:-30.8em !important;
        
     }  
     .buttonregister{
-       margin-left: -22em;
+       margin-left: -21em;
     }
     .max{
         width: 30em;
@@ -140,6 +163,8 @@ form {
     src: url('../../fonts/Outfit.ttf');
 }
 
+/*Input Form*/
+
 .inputForm label{
     font-weight: bold;
     padding: 0.50em;
@@ -148,38 +173,47 @@ form {
     color:#037e7e;
 }
 
+.container form {
+    display: flex;
+}
+
+.textsInputs {
+    margin-left: 140px;
+}
+
 .BookInput label{
     top:50%;
-    position: relative;
+    position: absolute;
     transform: translateY(-50%);
 
 }
+
 .inputValue{
     background: none;
     border: none;
     width: 50em;
-    
-    
-   
-   
+    font-size: 1.3em;
 }
+
 .inputValue1{
     background: none;
     border: none;
     width: 600px;
-   
+    font-size: 1.3em;
 }
+
 .inputValue2{
     background: none;
     border: none;
-    width:35em ;
-    margin-left:1.2em;
+    width:36.6em ;
+    margin-left:-0.3em;
 }
 
+input:focus {
+    outline: none;
+}
 
-
-
-
+/*InputFile*/
 
 
 /* input[type='file']{
@@ -192,8 +226,12 @@ form {
 }
 
 .imageContainer:hover{
-    background-color: #d2d3d5 ;
+    background-color: #a9a9a9 ;
 
+}
+
+.imageContainer {
+    background-color: #d2d3d5;
 }
 
 .imageContainer{
@@ -201,11 +239,11 @@ form {
     width: 335px;
     height: 500px;
     background-color: none;
+    margin-top: -30px;
+    margin-left: -55px;
     border: none;
-    margin-left: 20em;
-    margin-top:80px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 3px 6px, rgba(0, 0, 0, 0.081) 0px 3px 6px;
+    border-radius: 40px;
     cursor: pointer;
     background-image: url('../../img/photo.png');
     background-repeat: no-repeat;
@@ -221,6 +259,172 @@ form {
     margin-left: -5px;
 }
 
+
+/*REGISTER STUDENTS*/
+
+.backgroundRegister{
+    display: flex;
+    width:1084;
+    height: 700px;
+    margin-top: 100px;
+    margin-left: 30px;
+    border-radius:10px;
+    background-color: white;
+    box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
+}
+
+.container2{
+    width: 300px;
+    height: 300px;
+    margin-left: 28em !important;
+    margin-top: 10em;
+}
+.buttonregister2{
+    width: 15em;
+    height: 2.5em;
+    margin-top: 5rem;
+    border-radius: 40px;
+    border: none;
+    background-color: #4ae2fd;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 5.5em !important;
+    box-shadow: rgba(0, 0, 0, 0.056) 0px 3px 6px, rgba(0, 0, 0, 0.09) 0px 3px 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.inputForm2{
+    display: flex;
+    width:40em ;
+    height: 3em;
+    border-radius: 13px;
+    border: none;
+    border: solid 3px #00BCDE;
+    box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
+
+}
+.inputForm2 label{
+    font-weight: bold;
+    padding: 0.50em;
+    font-family: 'Outfit';
+    font-size: 1.3em ;
+    color:#037e7e;
+}
+
+.BookInput label{
+    top:50%;
+    position: absolute;
+    transform: translateY(-50%);
+
+}
+.inputValue{
+    background: none;
+    border: none;
+    width: 50em;
+    
+    
+   
+   
+}
+
+/* Responsive Register Students*/
+
+
+@media screen and (max-width: 1600px){
+    .inputForm{
+        width: 30em;
+        margin-left:-90px;
+    }
+    .max{
+        margin-left: -3em;
+    }
+    .container2{
+        margin-left: 22em !important;
+        margin-top: 20%;
+    }
+    .buttonregister2{
+        margin-left: 5em !important;
+    }
+}
+
+@media screen and (max-width: 1440px){
+    .inputForm{
+        width: 35em;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+    .inputValue2{
+        width: 30.6em !important; 
+        margin-left:-0.3em !important;
+    }
+    .container2{
+        margin-left: 17em !important;
+        margin-top: 20%;
+    }
+
+    }
+
+    @media screen and (max-width: 1300px){
+        .inputForm{
+            width: 30em !important;
+            margin-left:-100px;
+        }
+        .max{
+            margin-left: -10em;
+        }
+        .inputValue2{
+            width: 24.6em !important; 
+            margin-left:-0.3em !important;
+        }
+        .container2{
+            margin-left: 15em !important;
+            margin-top: 20%;
+        }
+        .buttonregister2{
+            margin-left: 5em !important;
+        }
+    
+        }
+      
+    
+
+@media screen and (max-width: 1280px){
+    .inputForm{
+        width: 30em;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+}
+
+@media screen and (max-width: 1152px){
+    .inputForm2{
+        width: 30em !important;
+        margin-left:-100px;
+    }
+    .max{
+        margin-left: -10em;
+    }
+    
+    .inputValue2{
+        width:12.6em !important; 
+        margin-left:-0.3em !important;
+    }
+    .inputValue{
+        width:11.3em !important; 
+    }
+    .container2{
+        margin-left: 20em !important;
+        margin-top: 20%;
+       
+    }
+    .buttonregister2{
+        margin-left:-2em !important ;
+    }
+}
 
 
 

@@ -1,62 +1,28 @@
-.MenuBList {
-    display: flex;
-    flex-wrap: inherit;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-
-.MenuBActive {
-    background-color: rgb(255, 255, 255) !important;
-    z-index: 0;
-    color: #037E7E !important;
-}
-
-.OptionBList {
-    background-color: rgb(200, 200, 200);
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.30);
-    padding: 12px 20px;
-    border-radius: 5px;
-    margin-right: -5px;
-    margin-top: 0;
-    font-weight: 550;
-    color: gray;
-}
-
-.MenuBFour {
-    z-index: 0;
-}
-
-.MenuBTwo {
-    z-index: 0;
-}
-
-.MenuBThree {
-    z-index: 0;
-}
-
 .ListBase {
     background-color: white;
     padding: 25px 25px;
     box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
     border-radius: 10px;
     border-top-left-radius: 0px;
-    margin-top: -24px;
+    margin-top: -104px;
     z-index: 0;
     position: relative;
 }
 
-@media (max-width: 1200px) {
-    .OptionBList {
-        margin-top: 18px;
-        font-size: 1.3em;
-        padding: 12px 2vw;
-    }
+.ListBase2 {
+    background-color: white;
+    padding: 25px 25px;
+    box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    margin-top: -178px;
+    z-index: 0;
+    position: relative;
 }
 
 .BooksList {
     border-radius: 26px;
     background: linear-gradient(90deg, #3FD2EA 22.1%, #00EACE 109.16%);
-
     text-align: center;
     caption-side: bottom;
     border-collapse: collapse;
@@ -99,12 +65,17 @@
     background: linear-gradient(90deg, #64eaff 22.1%, #46ffe9 109.16%);
 }
 
+.DefaultLine {
+    cursor: pointer;
+}
+
 .GreenFont {
     color: #037E7E;
 }
 
 .LightLine {
     background: #C8F3FA;
+    cursor: pointer;
 }
 
 .CapeBList {
@@ -120,7 +91,7 @@
     width: 70px;
 }
 
-.GenderBList {
+.GenreBList {
     width: 100px;
 }
 
@@ -133,13 +104,27 @@
     src: url('../../fonts/Outfit.ttf');
   }
 
+.CoverSize {
+    width: 80px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.CoverSize img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
 
 /* Status */
 
 .Avaliable {
     border-radius: 9px;
     background: linear-gradient(180deg, #00FF94 0%, #05DC82 100%);
-
     border: none;
     width: 130px;
     height: 50px;
@@ -152,7 +137,6 @@
 .Unvaliable {
     border-radius: 9px;
     background: linear-gradient(180deg, #D0D0D0 49.76%, #ACACAC 100%);
-
     border: none;
     width: 130px;
     height: 50px;
@@ -165,7 +149,6 @@
 .Blocked {
     border-radius: 9px;
     background: linear-gradient(180deg, #FF7171 0%, #F00 99.99%, #FF7171 100%);
-
     border: none;
     width: 130px;
     height: 50px;
@@ -191,7 +174,6 @@
 .Borrowed {
     border-radius: 9px;
     background: linear-gradient(180deg, #10F9DD 0%, #14F5DA 0.01%, #53DBCB 121.93%);
-
     border: none;
     width: 130px;
     height: 50px;

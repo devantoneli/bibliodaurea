@@ -1,7 +1,13 @@
+import styles from './css/register.module.css';
+import FormStudents from '../components/FormStudents';
+
 function RegisterStudents(){
     return(
-        <div>
-            cadastrar estudantes
+        <div className={styles.ContainerStudents}>
+            <div className={styles.backgroundRegister}>
+            <div className={styles.FormRegsiterStudents}><FormStudents/></div>
+            </div>
+            
         </div>
     )
 }
