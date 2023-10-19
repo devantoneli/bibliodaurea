@@ -28,8 +28,11 @@ function BooksList(props){
             if (bookSnapshot.exists()) {
               unsubscribe = onValue(booksRef, (snapshot) => {
                 const updatedData = snapshot.val();
-                setBooksList(updatedData);
-              });
+                const updatedDataArray = Object.values(updatedData);
+                setBooksList(updatedDataArray);
+                console.log(updatedDataArray)
+                console.log('Tamanho de booksList:', updatedDataArray.length);
+              })
             } else {
               console.log('Sem livros.');
             }
