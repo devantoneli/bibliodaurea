@@ -32,9 +32,9 @@ function ConsultBooks(){
 
                 {filterActive === 'Disponiveis' && <BooksList filter="Disponiveis" />}
 
-                {filterActive === 'Emprestados' && <BooksList filter="Emprestado" />}
+                {filterActive === 'Emprestados' && <BooksList filter="Emprestados" />}
 
-                {filterActive === 'Indisponiveis' && <BooksList filter="Indisponível" />}
+                {filterActive === 'Indisponiveis' && <BooksList filter="Indisponíveis" />}
             </div>
         </div>
     )

@@ -1,14 +1,18 @@
 //Script
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 
 //Styles
 import styles from '../pages/css/register.module.css';
 
 //Database
 import app from './../firebaseConfig/index.js';
-import { ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
+import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
+
+const db = getDatabase(app);
 
 function FormBook(){
+  const [uniqueKey, setUniqueKey] = useState(11);
+
   const [bookData, setBookData] = useState({
     title: '',
     genre: '',
@@ -65,25 +69,41 @@ function FormBook(){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const db = getDatabase(app);
 
     try {
       const booksRef = ref(db, 'books'); // Referência à coleção de livros
 
-      // Insira o novo livro no banco de dados
       const newBookRef = push(booksRef);
-      const generatedId = newBookRef.key; // Obtenha o ID gerado automaticamente
+      const generatedKey = newBookRef.key;
+
+      // Gerar chave number para o nó
+      get(booksRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const numberOfBooks = Object.keys(data).length;
+          const numberId = numberOfBooks + 1;
+          setUniqueKey(numberId);
+          console.log('teste1', uniqueKey)
+        } else {
+          setUniqueKey(1);
+          console.log('teste2')
+        }
+      });
+      
 
       // Atualize o objeto bookData com o ID gerado
       setBookData({
         ...bookData,
-        id: generatedId
+        id: uniqueKey
       });
-
+      console.log(bookData)
       // Insira os dados do livro, incluindo o ID, no banco de dados
-      await set(newBookRef, bookData);
-      console.log(bookData);
 
+      const updatedBookRef = ref(booksRef, uniqueKey);
+
+      // Defina os dados do livro com a nova chave
+      await set(updatedBookRef, bookData);
+      
       // Limpar o formulário após o registro bem-sucedido
       setBookData({
         title: '',
