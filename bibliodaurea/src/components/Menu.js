@@ -13,8 +13,20 @@ function Menu(){
                     <img src={Logo} alt="Logo" width="90px" className={styles.MenuLogo}></img>
                     <button className={styles.MenuExtends}><img src={MiniMenu} alt="Extender o menu" width="70px"></img></button>
 
-                    <h1 className={styles.MenuGroup}>Consultar</h1>
+                    <br></br><br></br>
+
+                      <div className={styles.MenuOptions}>
+                      <li><Link to="/Inicio" className={styles.Option}>Início</Link></li>
+
+                      </div>
+
+                     
+                     <h1 className={styles.MenuGroup}>Consultar</h1>
+                    
                     <ul className={styles.MenuOptions}>
+                   
+                    
+                     
                         <li><Link to="/consultar/livros" className={styles.Option}>Livros</Link></li>
 
                         <li><Link to="/consultar/alunos" className={styles.Option}>Alunos</Link></li>

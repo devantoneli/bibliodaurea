@@ -16,6 +16,7 @@ import RegisterStudents from './pages/RegisterStudents';
 import Reports from './pages/Reports';
 import MyAccount from './pages/MyAccount';
 import Help from './pages/Help';
+import IndexPrincipal from './pages/IndexPrincipal';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
             </Route>
 
             <Route path="/ajuda" element={<Help />}>
+            </Route>
+
+            <Route path="/Inicio" element={<IndexPrincipal/>}>
             </Route>
           </Routes>
         </div>
