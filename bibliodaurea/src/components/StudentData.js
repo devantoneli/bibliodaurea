@@ -10,6 +10,7 @@ import editIcon from '../img/editIcon.png';
 import historyIcon from '../img/historyIcon.png';
 import closeIcon from '../img/closeIcon.png';
 import saveIcon from '../img/saveIcon.png';
+import deleteIcon from '../img/deleteIcon.png';
 
 //Database
 import app from './../firebaseConfig/index.js';
@@ -54,8 +55,8 @@ function StudentData(props){
     return (
         <div>
             {StudentInfo && (
-            <ReactModal className={styles.StudentDataModal} isOpen={props.isOpen} onRequestClose={handleClose} contentLabel="Detalhes do livro selecionado">
-                <PopData id={StudentInfo.id} title={StudentInfo.title} cover={StudentInfo.cover} genre={StudentInfo.genre} author={StudentInfo.author} status={StudentInfo.status} since={StudentInfo.since} copies={StudentInfo.copies} quantity={StudentInfo.quantity} description={StudentInfo.description} registered={StudentInfo.registered} type={StudentInfo.type} edition={StudentInfo.edition} until={StudentInfo.until} onClose={handleClose} isEditMode={isEditMode} onEditClick={handleEditClick}/>
+            <ReactModal className={styles.BookDataModal} isOpen={props.isOpen} onRequestClose={handleClose} contentLabel="Detalhes do livro selecionado">
+                <PopData ra={StudentInfo.ra} name={StudentInfo.name} class={StudentInfo.class} cell={StudentInfo.cell} period={StudentInfo.period} status={StudentInfo.status} since={StudentInfo.since} edition={StudentInfo.edition} onClose={handleClose} isEditMode={isEditMode} onEditClick={handleEditClick}/>
             </ReactModal>)}
         </div>
         )
@@ -65,19 +66,11 @@ function StudentData(props){
             display: 'none'
         }); 
         const [editedValues, setEditedValues] = useState({
-            id: props.id,
-            title: props.title,
-            genre: props.genre,
-            description: props.description,
-            since: props.since,
-            until: props.until,
-            copies: props.copies,
-            status: props.status,
-            quantity: props.quantity,
-            registered: props.registered,
-            type: props.type,
-            edition: props.edition,
-            author: props.author,
+            name: props.name,
+            cell: props.cell,
+            class: props.class,
+            period: props.period,
+            ra: props.ra,
         });
 
         const handleSaveClick = () => {
@@ -98,15 +91,13 @@ function StudentData(props){
         };
 
         return(
-        <div className={`${styles.StudentData} ${props.isEditMode ? styles.InEdition : ''}`}>
-        <div className={styles.DataList}>
-            <div className={styles.CapeImg}><img src={props.cover} /></div>
-            
+        <div className={`${styles.BookData} ${props.isEditMode ? styles.InEdition : ''}`}>
+        <div className={styles.DataList}>     
             <div className={styles.DataLines}>
                 <div className={styles.TopDataList}>
                 {props.isEditMode ? 
-                ( <input type="text" id={styles.title} className={`${styles.StudentTitle} ${styles.InEditionInput}`} name="title" defaultValue={props.title} value={editedValues.title} onChange={(e) => setEditedValues({ ...editedValues, title: e.target.value })}/>) 
-                : ( <h1 className={`${styles.StudentTitle} ${props.isEditMode ? styles.InEdition : ''}`}>{props.title}</h1>)
+                ( <input type="text" id={styles.title} className={`${styles.BookTitle} ${styles.InEditionInput}`} name="title" defaultValue={props.title} value={editedValues.title} onChange={(e) => setEditedValues({ ...editedValues, title: e.target.value })}/>) 
+                : ( <h1 className={`${styles.BookTitle} ${props.isEditMode ? styles.InEdition : ''}`}>{props.title}</h1>)
                 }
                 
 
@@ -117,125 +108,62 @@ function StudentData(props){
 
                 <div className={styles.DataLine1}>
                     <div className={styles.BlockData}>
-                        <label htmlFor="id" className={`${props.isEditMode ? styles.InEdition : ''}`}>Rótulo</label>
-                        <div id={styles.id} name="id">{props.id}</div>
-                    </div>
-
-                    <hr />
-
-                    <div className={styles.BlockData}>
-                        <label htmlFor="genre" className={`${props.isEditMode ? styles.InEdition : ''}`}>Gênero</label>
+                        <label htmlFor="name" className={`${props.isEditMode ? styles.InEdition : ''}`}>Nome</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.genre} className={styles.InEditionInput} name="genre" defaultValue={props.genre} value={editedValues.genre} onChange={(e) => setEditedValues({ ...editedValues, genre: e.target.value })}/>) 
-                        : ( <div id={styles.genre} name="genre">{props.genre}</div>)
+                          ( <input type="text" id={styles.name} className={styles.InEditionInput} name="name" defaultValue={props.name} value={editedValues.name} onChange={(e) => setEditedValues({ ...editedValues, name: e.target.value })}/>) 
+                        : ( <div id={styles.name} name="name">{props.name}</div>)
                         }
                     </div>
 
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label htmlFor="author" className={`${props.isEditMode ? styles.InEdition : ''}`}>Autor</label>
+                        <label htmlFor="class" className={`${props.isEditMode ? styles.InEdition : ''}`}>Celular</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.author} className={styles.InEditionInput} name="author" defaultValue={props.author} value={editedValues.author} onChange={(e) => setEditedValues({ ...editedValues, author: e.target.value })}/>) 
-                        : ( <div id={styles.author} name="author">{props.author}</div>)
+                          ( <input type="text" id={styles.class} className={styles.InEditionInput} name="class" defaultValue={props.class} value={editedValues.class} onChange={(e) => setEditedValues({ ...editedValues, class: e.target.value })}/>) 
+                        : ( <div id={styles.class} name="class">{props.class}</div>)
                         }
                     </div>
-                </div>
 
-                <div className={styles.DataLine2}>
                     <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Estado</label>
+                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Turma</label>
                         {props.isEditMode ? 
-                          (   <select id={styles.status} className={`${styles.StatusSelect} ${styles.InEditionInput}`} name="status" value={editedValues.status} onChange={(e) => setEditedValues({ ...editedValues, status: e.target.value })}>
-                          <option value="Disponível">Disponível</option>
-                          <option value="Indisponível">Indisponível</option>
-                          <option value="Extraviado">Extraviado</option>
-                          <option value="Emprestado">Emprestado</option>
-                          <option value="Bloqueado">Bloqueado</option>
-                        </select>) 
-                        : ( <div id={styles.status} name="status">{props.status}</div>)
+                          ( <input type="text" id={styles.class} className={styles.InEditionInput} name="class" defaultValue={props.class} value={editedValues.class} onChange={(e) => setEditedValues({ ...editedValues, class: e.target.value })}/>) 
+                        : ( <div id={styles.class} name="class">{props.class}</div>)
                         }
                     </div>
 
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Data do estado</label>
+                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Período</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.since} className={styles.InEditionInput} name="since" defaultValue={props.since} value={editedValues.since} onChange={(e) => setEditedValues({ ...editedValues, since: e.target.value })}/>) 
-                        : ( <div id={styles.since} name="since">{props.since}</div>)
+                          ( <input type="text" id={styles.period} className={styles.InEditionInput} name="period" defaultValue={props.period} value={editedValues.period} onChange={(e) => setEditedValues({ ...editedValues, period: e.target.value })}/>) 
+                        : ( <div id={styles.period} name="period">{props.period}</div>)
                         }
                     </div>
                     
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Exemplares</label>
+                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Registro do Aluno RA</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.copies} className={styles.InEditionInput} name="copies" defaultValue={props.copies} value={editedValues.copies} onChange={(e) => setEditedValues({ ...editedValues, copies: e.target.value })}/>) 
-                        : ( <div id={styles.copies} name="copies">{props.copies}</div>)
+                          ( <input type="text" id={styles.ra} className={styles.InEditionInput} name="ra" defaultValue={props.ra} value={editedValues.ra} onChange={(e) => setEditedValues({ ...editedValues, ra: e.target.value })}/>) 
+                        : ( <div id={styles.ra} name="ra">{props.ra}</div>)
                         }
                     </div>
 
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Qtd. Geral</label>
+                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Retirados</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.quantity} className={styles.InEditionInput} name="quantity" defaultValue={props.quantity} value={editedValues.quantity} onChange={(e) => setEditedValues({ ...editedValues, quantity: e.target.value })}/>) 
-                        : ( <div id={styles.quantity} name="quantity">{props.quantity}</div>)
+                          ( <input type="text" id={styles.retired} className={styles.InEditionInput} name="retired" defaultValue={props.retired} value={editedValues.retired} onChange={(e) => setEditedValues({ ...editedValues, retired: e.target.value })}/>) 
+                        : ( <div id={styles.retired} name="retired">{props.retired}</div>)
                         }
                     </div>
-                </div>
-
-                <div className={styles.DataLine3}>
+    
                     <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Descrição do estado</label>
-                        {props.isEditMode ? 
-                          ( <input type="text" id={styles.description} className={styles.InEditionInput} name="description" defaultValue={props.description} value={editedValues.description} onChange={(e) => setEditedValues({ ...editedValues, description: e.target.value })}/>) 
-                        : ( <div id={styles.description} name="description">{props.description}</div>)
-                        }
-                    </div>
-
-                    <hr />
-
-                    <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Até</label>
-                        {props.isEditMode ? 
-                          ( <input type="text" id={styles.until} className={styles.InEditionInput} name="until" defaultValue={props.until} value={editedValues.until} onChange={(e) => setEditedValues({ ...editedValues, until: e.target.value })}/>) 
-                        : ( <div id={styles.until} name="until">{props.until}</div>)
-                        }
-                    </div>
-
-                    <hr />
-
-                    <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Adquirido em</label>
-                        {props.isEditMode ? 
-                          ( <input type="text" id={styles.registered} className={styles.InEditionInput} name="registered" defaultValue={props.registered} value={editedValues.registered} onChange={(e) => setEditedValues({ ...editedValues, registered: e.target.value })}/>) 
-                        : ( <div id={styles.registered} name="registered">{props.registered}</div>)
-                        }
-                    </div>
-                </div>
-                
-                <div className={styles.DataLine4}>
-                    <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Tipo de livro</label>
-                        {props.isEditMode ? 
-                          ( <input type="text" id={styles.type} className={styles.InEditionInput} name="type" defaultValue={props.type} value={editedValues.type} onChange={(e) => setEditedValues({ ...editedValues, type: e.target.value })}/>) 
-                        : ( <div id={styles.type} name="type">{props.type}</div>)
-                        }
-                    </div>
-
-                    <hr style={{ margin: '19px 10px' }} />
-
-                    <div className={styles.BlockData}>
-                        <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Edição</label>
-                                                {props.isEditMode ? 
-                          ( <input type="text" id={styles.edition} className={styles.InEditionInput} name="edition" defaultValue={props.edition} value={editedValues.edition} onChange={(e) => setEditedValues({ ...editedValues, edition: e.target.value })}/>) 
-                        : ( <div id={styles.edition} name="edition">{props.edition}</div>)
-                        }
-
                         {props.isEditMode ? (
                                 <button className={styles.SaveBButton} onClick={handleSaveClick}>
                                     <img src={saveIcon} />
@@ -245,7 +173,7 @@ function StudentData(props){
                                 <button className={styles.HistoryButton}>
                                     <img src={historyIcon} />
                                 </button>
-                                <button className={styles.ToLoan}>Emprestar</button>
+                                
                                 <button className={styles.EditBButton} onClick={props.onEditClick}>
                                     <img src={editIcon} />
                                 </button>

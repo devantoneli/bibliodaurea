@@ -30,16 +30,7 @@ function ConsultStudents(){
 
               <h2 onClick={() => handleClickFiltro('Todos')} className={`${styles.OptionBList} ${filterActive === 'Todos' ? styles.MenuBActive : styles.MenuB}`}>Todos</h2>
             </div>
-
-            <div className={styles.MenuBList}>
-              <h2 onClick={() => handleClickFiltro('Indisponiveis')} className={`${styles.OptionBList} ${styles.MenuBFour} ${filterActive === 'Indisponiveis' ? styles.MenuBActive : styles.MenuB}`}>Indisponíveis</h2>
-
-              <h2 onClick={() => handleClickFiltro('Emprestados')} className={`${styles.OptionBList} ${styles.MenuBThree} ${filterActive === 'Emprestados' ? styles.MenuBActive : styles.MenuB}`}>Emprestados</h2>
-
-              <h2 onClick={() => handleClickFiltro('Disponiveis')} className={`${styles.OptionBList} ${styles.MenuBTwo} ${filterActive === 'Disponiveis' ? styles.MenuBActive : styles.MenuB}`}>Disponíveis</h2>
-
-              <h2 onClick={() => handleClickFiltro('Todos')} className={`${styles.OptionBList} ${filterActive === 'Todos' ? styles.MenuBActive : styles.MenuB}`}>Todos</h2>
-            </div>
+            
             <div className={styles.consultStudents}>
             <StudentsList />
             </div>

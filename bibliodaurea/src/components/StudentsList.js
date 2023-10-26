@@ -3,7 +3,7 @@ import {useState, useCallback, useEffect } from 'react';
 import styles from './css/booksList.module.css';
 
 //Components
-// import StudentData from './StudentData';
+import StudentData from './StudentData.js';
 
 //Database
 import app from './../firebaseConfig/index.js';
@@ -166,7 +166,7 @@ function StudentsList(props){
                     </tbody>
                 </table>
             </div>
-            {/* {selectedStudentId && <StudentData onClose={closeStudentDataModal} isOpen={isModalOpen} studentId={selectedStudentId}/>} */}
+            {selectedStudentId && <StudentData onClose={closeStudentDataModal} isOpen={isModalOpen} studentId={selectedStudentId}/>}
         </div>
         )
     }
