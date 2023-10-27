@@ -118,10 +118,10 @@ function StudentData(props){
                     <hr />
 
                     <div className={styles.BlockData}>
-                        <label htmlFor="class" className={`${props.isEditMode ? styles.InEdition : ''}`}>Celular</label>
+                        <label htmlFor="cell" className={`${props.isEditMode ? styles.InEdition : ''}`}>Celular</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.class} className={styles.InEditionInput} name="class" defaultValue={props.class} value={editedValues.class} onChange={(e) => setEditedValues({ ...editedValues, class: e.target.value })}/>) 
-                        : ( <div id={styles.class} name="class">{props.class}</div>)
+                          ( <input type="text" id={styles.cell} className={styles.InEditionInput} name="cell" defaultValue={props.cell} value={editedValues.cell} onChange={(e) => setEditedValues({ ...editedValues, cell: e.target.value })}/>) 
+                        : ( <div id={styles.cell} name="cell">{props.cell}</div>)
                         }
                     </div>
 
@@ -158,7 +158,7 @@ function StudentData(props){
                     <div className={styles.BlockData}>
                         <label className={`${props.isEditMode ? styles.InEdition : ''}`}>Retirados</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.retired} className={styles.InEditionInput} name="retired" defaultValue={props.retired} value={editedValues.retired} onChange={(e) => setEditedValues({ ...editedValues, retired: e.target.value })}/>) 
+                          ( <input type="text" id={styles.retired} className={styles.InEditionInput} name="retired" defaultValue={props.retired} value={editedValues.retired}/>) 
                         : ( <div id={styles.retired} name="retired">{props.retired}</div>)
                         }
                     </div>
