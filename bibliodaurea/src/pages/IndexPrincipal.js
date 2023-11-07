@@ -7,12 +7,13 @@ function IndexPrincipal(){
             <div>Logo</div>
             <div>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Inicio</a></li>'
                     <li><a href="#">O que é?</a></li>
                     <li><a href="#">Quem somos?</a></li>
-                </ul>
+                </ul>'
                 <div>
-                    <p>Login / Cadastro</p>
+
+                    <p>Login / Cadastro</p>                               
                 </div>
             </div>
         </div>

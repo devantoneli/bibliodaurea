@@ -12,14 +12,6 @@ function Menu(){
                 <ul>
                     <img src={Logo} alt="Logo" width="90px" className={styles.MenuLogo}></img>
                     <button className={styles.MenuExtends}><img src={MiniMenu} alt="Extender o menu" width="70px"></img></button>
-
-                    <br></br><br></br>
-
-                      <div className={styles.MenuOptions}>
-                      <li><Link to="/Inicio" className={styles.Option}>Início</Link></li>
-
-                      </div>
-
                      
                      <h1 className={styles.MenuGroup}>Consultar</h1>
                     

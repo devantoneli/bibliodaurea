@@ -16,15 +16,17 @@ import RegisterStudents from './pages/RegisterStudents';
 import Reports from './pages/Reports';
 import MyAccount from './pages/MyAccount';
 import Help from './pages/Help';
-import IndexPrincipal from './pages/IndexPrincipal';
+
+                                                    
 
 function App() {
   return (
+
+  
     <Router>
       <div className="App" style={{display: 'flex'}}>
-        <Menu />
-
-        <div className="Content">
+       <Menu />
+           <div className="Content">
           <Routes>
             <Route path="/consultar/livros" element={<ConsultBooks />}>
             </Route>
@@ -49,14 +51,19 @@ function App() {
 
             <Route path="/ajuda" element={<Help />}>
             </Route>
-
-            <Route path="/Inicio" element={<IndexPrincipal/>}>
-            </Route>
           </Routes>
         </div>
       </div>
     </Router>
+
   );
+
+ 
+  
 }
 
 export default App;
+
+
+
+
