@@ -43,10 +43,11 @@
     font-family: 'Outfit', sans-serif;
     color: white;
     font-size: 25px;
+    font-weight: bold;
 }
 
 a:hover { 
-    color: black;
+    color: rgb(10, 94, 183);
     transition: 2s; 
 }
 
@@ -65,6 +66,7 @@ a:hover {
     margin-top: 100px;
     margin-left: -80px;
     color: white;
+    font-weight: bold;
 
 }
 #traço{
@@ -92,7 +94,7 @@ a:hover {
     text-align: justify;
     width: 500px;
     height: 50px;
-    font-size: 1.3em;
+    font-size: 1.5em;
     margin-left: 3.9em;
     margin-top: 5em;
 
@@ -102,15 +104,14 @@ a:hover {
     margin-top: -4em;
 }
 .start button{
-    background-color: transparent;
+    background-color: #05DCC2;
     border: none ;
     border: solid 4px white;
     border-radius: 20px;
     width: 20em;
     height: 5em;
-    outline: none;
     cursor: pointer;
-    margin-top: 15em;
+    margin-top: 20em;
     margin-left: 10em;
     box-shadow: rgb(6, 255, 238) 0px 7px 29px 0px;
    
@@ -126,15 +127,92 @@ a:hover {
 }
 
 .start :hover{
-    box-shadow: rgb(6, 255, 238) 0px 7px 29px 0px;
+   
     transition: .7s ease all;
     border-color: #02BFDE;
-  
+    box-shadow: white;
+}
+
+.Group34{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-left: 79em;
+    margin-top: -35em;
+}
+@media screen and (max-width: 1300px) {
+    .Group34{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-left: 23em;
+    margin-top: -43em;
+    }
+
+    #Rectangle{
+    margin-top: -1em !important;
+    position: relative;
+
+}
+.Oqueé img{
+    margin-left: 8em !important;
+    margin-top: 2em !important;
+    width: 80% !important;
     
+}
+.Oqueé p{
+    font-size: 1.5em !important;
+    margin-left: 7em;
+    font-weight: bold;
+}
+
+
+ 
+}
+
+.Oqueé{
+    position: absolute;
+    width: 100%;
+    height: 900px;
+    margin-top:16em;
+    background-color: #FFFFFF;
+    box-shadow: white 0px -3px 5px;
+    
+
+}
+
+#h1{
+    text-align: center;
+    font-size: 5em;
+    color: #05DCC2;
+    position: relative;
+}
+
+.Oqueé p{
+    font-size: 2em;
+    margin-left: 10em;
+    font-weight: bold;
+}
+
+.Oqueé img{
+    margin-left: 25em;
+    margin-top: 2em;
+    width: 60%;
+}
+
+
+#Rectangle{
+    margin-top: -20em;
+    width: 118em;
+
 }
 
 
     </style>
+
+    
 
     <div class="container">
         <div class="menu">
@@ -159,15 +237,45 @@ a:hover {
     <div class="textInicio">
         <h1>Bibliodaurea</h1>
         <h3>Automatização de registros bibliotecários</h3>
+        <div class="textInicio">
+            <p>Contrary to popular belief, Lorem Ipsum is<br> not simply random text. It has roots in a<br> piece of classical Latin literature from 45 BC,<br> making it over 2000 years old. Richard<br> McClintock, a Latin professor at Hampden<br>-Sydney College in Virginia, looked up one of<br> the more obscure Latin words, consectetur, from<br> a Lorem Ipsum passage.</p>
+        </div>
     </div>
-    <div class="textInicio">
-        <p>Contrary to popular belief, Lorem Ipsum is<br> not simply random text. It has roots in a<br> piece of classical Latin literature from 45 BC,<br> making it over 2000 years old. Richard<br> McClintock, a Latin professor at Hampden<br>-Sydney College in Virginia, looked up one of<br> the more obscure Latin words, consectetur, from<br> a Lorem Ipsum passage.</p>
-    </div>
+    
    </div>
    
+   <div class="container2">
      <div class="start">
        <button><p>Começar agora</p></button>
     </div>
+
+   <div class="Group34">
+        <img src="/bibliodaurea/src/img/Component 3.png" width="900px">
+    </div>
+
+    <div class="Oqueé">
+        <h1 id="h1">O que é</h1>
+        <p>Bibliodaurea é um software web que visa facilitar o registro de empréstimos de<br> livros da biblioteca na escola Luiz  D'Áurea. O usuário poderá utilizar diversas<br> ferramentas que contribuem para o tratamento de cada livro, aluno e integridade da<br> biblioteca.</p>
+        
+        
+         <img src="/bibliodaurea/src/img/Component 2.png" width="80%">
+    </div>
+
+       
+
+    <div>
+        <img src="/bibliodaurea/src/img/Rectangle 9.png" id="Rectangle">
+    </div>
+
+    <div>
+        
+    </div>
+    
+</div>
+
+
+
+    
 
    
     
