@@ -28,13 +28,26 @@ form {
 
 .inputForm{
     display: flex;
-    width:40em ;
+    width: 40em;
     height: 3em;
     border-radius: 13px;
     border: none;
     border: solid 3px #00BCDE;
     box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
+}
 
+.inputForm3{
+    display: flex;
+    width: 40em;
+    height: 3em;
+    border-radius: 13px;
+    border: none;
+    border: solid 3px #00BCDE;
+    box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
+}
+
+.inputValue4{
+    opacity: 0;
 }
 
 .buttonregister{
@@ -60,8 +73,12 @@ form {
 
 /*responsive*/
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1800px){
     .inputForm{
+        width: 30em;
+        margin-left:-90px;
+    }
+    .inputForm3{
         width: 30em;
         margin-left:-90px;
     }
@@ -83,6 +100,10 @@ form {
         width: 35em;
         margin-left:-100px;
     }
+    .inputForm3{
+        width: 35em !important;
+        margin-left:-100px !important;
+    }
     .max{
         margin-left: -10em;
     }
@@ -98,6 +119,10 @@ form {
             width: 30em !important;
             margin-left:-100px;
         }
+        .inputForm3{
+            width: 30em !important;
+            margin-left:-100px;
+        }
         .max{
             margin-left: -10em;
         }
@@ -110,6 +135,10 @@ form {
 
 @media screen and (max-width: 1280px){
     .inputForm{
+        width: 30em;
+        margin-left:-100px;
+    }
+    .inputForm3{
         width: 30em;
         margin-left:-100px;
     }
@@ -173,6 +202,15 @@ form {
     color:#037e7e;
 }
 
+.inputForm3 label{
+    font-weight: bold;
+    padding: 0.50em;
+    font-family: 'Outfit';
+    font-size: 1.3em ;
+    color:#037e7e;
+    width: 200px;
+}
+
 .container form {
     display: flex;
 }
@@ -207,6 +245,7 @@ form {
     border: none;
     width:36.6em ;
     margin-left:-0.3em;
+    font-size: 1.3em;
 }
 
 input:focus {
@@ -279,6 +318,7 @@ input:focus {
     margin-left: 28em !important;
     margin-top: 10em;
 }
+
 .buttonregister2{
     width: 15em;
     height: 2.5em;
@@ -293,6 +333,7 @@ input:focus {
     cursor: pointer;
     font-weight: bold;
 }
+
 .inputForm2{
     display: flex;
     width:40em ;
@@ -303,6 +344,7 @@ input:focus {
     box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
 
 }
+
 .inputForm2 label{
     font-weight: bold;
     padding: 0.50em;
@@ -317,6 +359,7 @@ input:focus {
     transform: translateY(-50%);
 
 }
+
 .inputValue{
     background: none;
     border: none;
@@ -332,6 +375,10 @@ input:focus {
 
 @media screen and (max-width: 1600px){
     .inputForm{
+        width: 30em;
+        margin-left:-90px;
+    }
+    .inputForm3{
         width: 30em;
         margin-left:-90px;
     }
@@ -368,6 +415,10 @@ input:focus {
 
     @media screen and (max-width: 1300px){
         .inputForm{
+            width: 30em !important;
+            margin-left:-100px;
+        }
+        .inputForm3{
             width: 30em !important;
             margin-left:-100px;
         }

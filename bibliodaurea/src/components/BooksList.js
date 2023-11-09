@@ -109,29 +109,7 @@ function BooksList(props){
           }
         }
         fetchData();
-      }else {
-        async function fetchData() {
-          try {
-            const booksRef = ref(db, 'books');
-            const bookSnapshot = await get(booksRef);
-        
-            if (bookSnapshot.exists()) {
-              unsubscribe = onValue(booksRef, (snapshot) => {
-                const allBooks = snapshot.val();
-        
-                // Filtrar apenas os livros com status 'disponível'
-                const availableBooks = Object.values(allBooks).filter(book => book.status === 'Indisponível');
-        
-                setBooksList(availableBooks);
-              });
-            } else {
-              console.log('Sem livros.');
-            }
-          } catch (error) {
-            console.error('Erro ao buscar dados dos livros:', error);
-          }
-        }
-        fetchData();}
+      }
   
   
       return () => {
@@ -166,18 +144,18 @@ function BooksList(props){
                         </tr>
                     </thead>
                     <tbody>
-                        {booksList.map((book) => (
-                            <tr key={book.id} onClick={() => handleBookClick(book.id)} className={`${book.id % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
-                            <td className={`${styles.TdBList} ${book.id % 2 === 0 ? styles.GreenFont : ''} ${book.id === booksList.length - 1 ? styles.EndBAround : ''}`}> {book.id} </td>
-                            <td className={`${styles.TdBList} ${styles.CoverSize} ${book.id % 2 === 0 ? styles.GreenFont : ''}`}> <img src={book.cover} alt={book.title} /> </td>
-                            <td className={`${styles.TdBList} ${book.id % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
+                        {booksList.map((book, index) => (
+                            <tr key={index} onClick={() => handleBookClick(book.id)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround : ''}`}> {book.id} </td>
+                            <td className={`${styles.TdBList} ${styles.CoverSize} ${index % 2 === 0 ? styles.GreenFont : ''}`}> <img src={book.cover} alt={book.title} /> </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.title} </td>
 
                             <td className={`${styles.TdBList}`}>
                                 <button className={book.status == "Disponível" ? styles.Avaliable : book.status == "Indisponível" ? styles.Unvaliable : book.status == "Bloqueado" ? styles.Blocked : book.status == "Extraviado" ? styles.Lost : book.status == "Emprestado" ? styles.Borrowed : "Status indefinido"}>{book.status}</button>
                             </td>
 
-                            <td className={`${styles.TdBList} ${book.id % 2 === 0 ? styles.GreenFont : ''}`}> {book.genre.length > 50 ? `${book.genre.substring(0, 50)}...` : book.genre} </td>
-                            <td className={`${styles.TdBList} ${book.id % 2 === 0 ? styles.GreenFont : ''} ${book.id === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.description.length > 50 ? `${book.description.substring(0, 50)}...` : book.description} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {book.genre.length > 50 ? `${book.genre.substring(0, 50)}...` : book.genre} </td>
+                            <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === booksList.length - 1 ? styles.EndBAround2 : ''}`}> {book.description.length > 50 ? `${book.description.substring(0, 50)}...` : book.description} </td>
                             </tr>
                         ))}
 

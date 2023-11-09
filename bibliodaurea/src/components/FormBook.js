@@ -1,5 +1,5 @@
 //Script
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 
 //Styles
 import styles from '../pages/css/register.module.css';
@@ -8,11 +8,8 @@ import styles from '../pages/css/register.module.css';
 import app from './../firebaseConfig/index.js';
 import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
 
-const db = getDatabase(app);
-
 function FormBook(){
   const [uniqueKey, setUniqueKey] = useState(11);
-
   const [bookData, setBookData] = useState({
     title: '',
     genre: '',
@@ -20,7 +17,14 @@ function FormBook(){
     cover: '',
     edition: '',
     copies: 0,
-    id: '' // Adicione um campo "id" vazio para rastrear o ID gerado automaticamente
+    id: '',
+    quantity: '',
+    registered: '',
+    since: '',
+    status: '',
+    until: '',
+    description: '',
+    type: ''
   });
 
   //CONST'S FILE
@@ -52,9 +56,29 @@ function FormBook(){
 
     console.log('Arquivo selecionado:', file.name);
 
+    e.preventDefault();
+    const db = getDatabase(app);
+
+    let booksRef = ref(db, 'books'); 
+      
+    // Gerar chave number para o nó
+    get(booksRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const numberOfBooks = Object.keys(data).length;
+        const numberId = numberOfBooks + 1;
+        setUniqueKey(numberId);
+        console.log('teste1', uniqueKey)
+      } else {
+        setUniqueKey(1);
+        console.log('teste2')
+      }
+    });
+
     setBookData({
       ...bookData,
       cover: file.name,
+      id: ""+uniqueKey,
     });
     console.log(bookData)
   }
@@ -69,13 +93,11 @@ function FormBook(){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const db = getDatabase(app);
 
     try {
-      const booksRef = ref(db, 'books'); // Referência à coleção de livros
-
-      const newBookRef = push(booksRef);
-      const generatedKey = newBookRef.key;
-
+      var booksRef = ref(db, 'books'); 
+      
       // Gerar chave number para o nó
       get(booksRef).then((snapshot) => {
         if (snapshot.exists()) {
@@ -89,21 +111,13 @@ function FormBook(){
           console.log('teste2')
         }
       });
-      
 
-      // Atualize o objeto bookData com o ID gerado
-      setBookData({
-        ...bookData,
-        id: uniqueKey
-      });
-      console.log(bookData)
+      var booksRef = ref(db, 'books/' + uniqueKey); 
+
       // Insira os dados do livro, incluindo o ID, no banco de dados
+      await set(booksRef, bookData);
+      console.log(bookData);
 
-      const updatedBookRef = ref(booksRef, uniqueKey);
-
-      // Defina os dados do livro com a nova chave
-      await set(updatedBookRef, bookData);
-      
       // Limpar o formulário após o registro bem-sucedido
       setBookData({
         title: '',
@@ -112,7 +126,14 @@ function FormBook(){
         cover: '',
         edition: '',
         copies: 0,
-        id: ''
+        id: '',
+        quantity: '',
+        registered: '',
+        since: '',
+        status: '',
+        until: '',
+        description: '',
+        type: ''
       });
 
       console.log('Livro registrado com sucesso!');
@@ -134,11 +155,20 @@ function FormBook(){
         ...bookData,
         [name]: selectedFile, // Use o arquivo selecionado em vez do valor
       });
-    } else {
+    } else if(name != 'copies') {
       console.log("NAO TA NO COVER");
       setBookData({
         ...bookData,
         [name]: value,
+      });
+    }
+
+    if (name === 'copies') {
+      const Numcopies = parseInt(document.getElementsByName('copies')[0].value);
+      console.log("Ta no copies "+Numcopies);
+      setBookData({
+        ...bookData,
+        [name]: Numcopies, // Use o arquivo selecionado em vez do valor
       });
     }
   };
@@ -185,21 +215,21 @@ function FormBook(){
 
             <div className={styles.inputForm}>
             <label>Edição</label>
-              <input className={styles.inputValue1}  type="text" name="edition" value={bookData.edition} onChange={handleInputChange} required/><br></br>
+              <input className={styles.inputValue1} type="text" name="edition" value={bookData.edition} onChange={handleInputChange} required/><br></br>
             </div>
 
             <br></br>
 
             <div className={styles.inputForm}>
               <label>N°Exemplares</label>
-              <input className={styles.inputValue}  type="number" name="copies" value={bookData.copies} onChange={handleInputChange} required/><br></br>
+              <input className={styles.inputValue} type="number" name="copies" value={bookData.copies} onChange={handleInputChange} required/><br></br>
             </div>
 
             <br></br>
 
-            <div className={styles.inputForm}>
+            <div className={styles.inputForm3}>
               <label>Tipo de Livro</label>
-              <input className={styles.inputValue2}  type="text" name="type" value={bookData.type} onChange={handleInputChange} required/><br></br>
+              <input className={styles.inputValue2} type="text" name="type" value={bookData.type} onChange={handleInputChange} required/><br></br>
             </div>
 
             <button className={styles.buttonregister} type="submit">Cadastrar</button>

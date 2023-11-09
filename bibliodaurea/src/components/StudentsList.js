@@ -7,7 +7,7 @@ import StudentData from './StudentData.js';
 
 //Database
 import app from './../firebaseConfig/index.js';
-import { onValue, update } from 'firebase/database';
+import { onValue } from 'firebase/database';
 import { getDatabase, ref, get, child } from 'firebase/database';
 
 const db = getDatabase(app);
@@ -28,13 +28,9 @@ function StudentsList(props){
          
             if (bookSnapshot.exists()) {
               unsubscribe = onValue(studentsRef, (snapshot) => {
-                const data = snapshot.val();
-                // Converter o objeto em uma matriz de objetos
-                const studentsArray = Object.keys(data).map((key) => ({
-                  ...data[key],
-                  ra: key // Usar a chave como 'ra'
-                }));
-                setStudentsList(studentsArray);
+                const updatedData = snapshot.val();
+                setStudentsList(updatedData);
+                console.log(studentsList)
               });
             } else {
               console.log('Sem alunos.');
@@ -139,26 +135,26 @@ function StudentsList(props){
                 <table className={styles.BooksList}>
                     <thead className={styles.HeadBList}>
                         <tr>
-                            <th className={`${styles.ThBList} ${styles.DescriptionBList} ${styles.LeftBorder}`}>Nome</th>
-                            <th className={`${styles.ThBList} ${styles.TitleBList}`}>Número</th>
+                            <th className={`${styles.ThBList} ${styles.DescriptionBList} ${styles.LeftBorder}`}>Número</th>
+                            <th className={`${styles.ThBList} ${styles.TitleBList}`}>Nome</th>
                             <th className={`${styles.ThBList} ${styles.TitleBList}`}>Retirados</th>
                             <th className={`${styles.ThBList} ${styles.StatusBList}`}>Turma</th>
                             <th className={`${styles.ThBList} ${styles.DescriptionBList} ${styles.RightBorder}`}>RA</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {studentsList.map((student) => (
-                            <tr key={student.ra} onClick={() => handleStudentClick(student.ra)} className={`${student.ra % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                        {studentsList.map((student, index) => (
+                            <tr key={index} onClick={() => handleStudentClick(student.ra)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
 
-                              <td className={`${styles.TdBList} ${student.ra % 2 === 0 ? styles.GreenFont : ''} ${student.ra === studentsList.length - 1 ? styles.EndBAround : ''}`}> {student.cell} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === studentsList.length - 1 ? styles.EndBAround : ''}`}> {student.cell} </td>
 
-                              <td className={`${styles.TdBList} ${student.ra % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
 
-                              <td className={`${styles.TdBList} ${student.ra % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
 
-                              <td className={`${styles.TdBList} ${student.ra % 2 === 0 ? styles.GreenFont : ''}`}> {student.class} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.class} </td>
 
-                              <td className={`${styles.TdBList} ${student.ra % 2 === 0 ? styles.GreenFont : ''} ${student.ra === studentsList.length - 1 ? styles.EndBAround2 : ''}`}>{student.ra} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === studentsList.length - 1 ? styles.EndBAround2 : ''}`}>{student.ra} </td>
 
                             </tr>
                         ))}
