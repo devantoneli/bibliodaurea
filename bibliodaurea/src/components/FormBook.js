@@ -9,7 +9,8 @@ import app from './../firebaseConfig/index.js';
 import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
 
 function FormBook(){
-  const [uniqueKey, setUniqueKey] = useState(11);
+  var uniqueKey
+  var uniqueKeyId;
   const [bookData, setBookData] = useState({
     title: '',
     genre: '',
@@ -47,38 +48,39 @@ function FormBook(){
       let linkCapa = e.target.result;
       console.log(linkCapa);
       document.getElementById("linkImg").value = linkCapa;
-      // Oculta o input de arquivo após o carregamento da imagem
       fileInputRef.current.style.display = 'none';
     };
     fileReader.readAsDataURL(file);
-    // Atualiza a visibilidade da imagem
     document.getElementById("photo").style.opacity = '1';
 
     console.log('Arquivo selecionado:', file.name);
 
-    e.preventDefault();
     const db = getDatabase(app);
 
-    let booksRef = ref(db, 'books'); 
+    try {
+      let booksRef = ref(db, 'books'); 
       
-    // Gerar chave number para o nó
-    get(booksRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        const data = snapshot.val();
-        const numberOfBooks = Object.keys(data).length;
-        const numberId = numberOfBooks + 1;
-        setUniqueKey(numberId);
-        console.log('teste1', uniqueKey)
-      } else {
-        setUniqueKey(1);
-        console.log('teste2')
-      }
-    });
+      get(booksRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const data2 = snapshot.val();
+          const numberOfBooks2 = Object.keys(data2).length;
+          uniqueKeyId = numberOfBooks2 + 1;
+          console.log('teste1 File', uniqueKeyId);
+          console.log('Tamanho do banco File: ' + numberOfBooks2);
+        } else {
+          uniqueKeyId = 1;
+          console.log('teste n tem livro entao ele começa do zero, ou seja, um File');
+        }
+      });
+
+    } catch (error) {
+      console.error('Erro ao adquirir tamanho do banco:', error);
+    }
 
     setBookData({
       ...bookData,
       cover: file.name,
-      id: ""+uniqueKey,
+      id: ""+uniqueKeyId,
     });
     console.log(bookData)
   }
@@ -96,7 +98,7 @@ function FormBook(){
     const db = getDatabase(app);
 
     try {
-      var booksRef = ref(db, 'books'); 
+      let booksRef = ref(db, 'books'); 
       
       // Gerar chave number para o nó
       get(booksRef).then((snapshot) => {
@@ -104,15 +106,18 @@ function FormBook(){
           const data = snapshot.val();
           const numberOfBooks = Object.keys(data).length;
           const numberId = numberOfBooks + 1;
-          setUniqueKey(numberId);
-          console.log('teste1', uniqueKey)
+          uniqueKey = numberId;
+          console.log('teste1', uniqueKey);
+          console.log('Tamanho do banco: ' + numberOfBooks);
+          booksRef = ref(db, 'books/' + uniqueKey); 
         } else {
-          setUniqueKey(1);
-          console.log('teste2')
+          uniqueKey = 1;
+          console.log('teste n tem livro entao ele começa do zero, ou seja, um');
+          booksRef = ref(db, 'books/' + uniqueKey); 
         }
       });
 
-      var booksRef = ref(db, 'books/' + uniqueKey); 
+      
 
       // Insira os dados do livro, incluindo o ID, no banco de dados
       await set(booksRef, bookData);
