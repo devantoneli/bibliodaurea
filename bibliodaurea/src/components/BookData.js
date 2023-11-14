@@ -26,7 +26,7 @@ function BookData(props){
     useEffect(() => {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books/' + props.bookId); // Substitua "bookId" pelo ID do livro que você deseja recuperar
+            const booksRef = ref(db, 'users/gfm45h0kmuw/books/' + props.bookId); // Substitua "bookId" pelo ID do livro que você deseja recuperar
             const bookSnapshot = await get(booksRef);
           
             if (bookSnapshot.exists()) {
@@ -83,7 +83,7 @@ function BookData(props){
         const handleSaveClick = () => {
             // Atualize os dados no Firebase
             const db = getDatabase(app);
-            const bookRef = ref(db, `books/${props.id}`);
+            const bookRef = ref(db, `users/gfm45h0kmuw/books/${props.id}`);
      
             update(bookRef, editedValues)
             .then(() => {

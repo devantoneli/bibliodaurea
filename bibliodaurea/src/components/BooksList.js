@@ -23,7 +23,7 @@ function BooksList(props){
       if (props.filter==false){
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books');
+            const booksRef = ref(db, 'users/gfm45h0kmuw/books');
             const bookSnapshot = await get(booksRef);
     
             if (bookSnapshot.exists()) {
@@ -43,7 +43,7 @@ function BooksList(props){
       }else if (props.filter == 'Disponiveis') {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books');
+            const booksRef = ref(db, 'users/gfm45h0kmuw/books');
             const bookSnapshot = await get(booksRef);
         
             if (bookSnapshot.exists()) {
@@ -66,7 +66,7 @@ function BooksList(props){
       }else if (props.filter == 'Indisponiveis') {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books');
+            const booksRef = ref(db, 'users/gfm45h0kmuw/books');
             const bookSnapshot = await get(booksRef);
         
             if (bookSnapshot.exists()) {
@@ -89,7 +89,7 @@ function BooksList(props){
       }else if (props.filter == 'Emprestados') {
         async function fetchData() {
           try {
-            const booksRef = ref(db, 'books');
+            const booksRef = ref(db, 'users/gfm45h0kmuw/books');
             const bookSnapshot = await get(booksRef);
         
             if (bookSnapshot.exists()) {

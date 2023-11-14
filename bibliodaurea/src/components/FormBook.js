@@ -9,16 +9,16 @@ import app from './../firebaseConfig/index.js';
 import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
 
 function FormBook(){
-  var uniqueKey
+  var uniqueKey;
   var uniqueKeyId;
   const [bookData, setBookData] = useState({
+    id: 0,
     title: '',
     genre: '',
     author: '',
     cover: '',
     edition: '',
     copies: 0,
-    id: '',
     quantity: '',
     registered: '',
     since: '',
@@ -46,7 +46,6 @@ function FormBook(){
     fileReader.onload = function (e) {
       document.getElementById("photo").src = e.target.result;
       let linkCapa = e.target.result;
-      console.log(linkCapa);
       document.getElementById("linkImg").value = linkCapa;
       fileInputRef.current.style.display = 'none';
     };
@@ -58,7 +57,7 @@ function FormBook(){
     const db = getDatabase(app);
 
     try {
-      let booksRef = ref(db, 'books'); 
+      let booksRef = ref(db, 'users/gfm45h0kmuw/books/'); 
       
       get(booksRef).then((snapshot) => {
         if (snapshot.exists()) {
@@ -72,7 +71,6 @@ function FormBook(){
           console.log('teste n tem livro entao ele começa do zero, ou seja, um File');
         }
       });
-
     } catch (error) {
       console.error('Erro ao adquirir tamanho do banco:', error);
     }
@@ -80,7 +78,7 @@ function FormBook(){
     setBookData({
       ...bookData,
       cover: file.name,
-      id: ""+uniqueKeyId,
+      id: uniqueKeyId,
     });
     console.log(bookData)
   }
@@ -89,7 +87,7 @@ function FormBook(){
   const setSelectedFile = (file) => {
     setBookData({
       ...bookData,
-      cover: file.name, // Atualize o campo "cover" com o arquivo selecionado
+      cover: file.name, 
     });
   };
 
@@ -98,30 +96,10 @@ function FormBook(){
     const db = getDatabase(app);
 
     try {
-      let booksRef = ref(db, 'books'); 
-      
-      // Gerar chave number para o nó
-      get(booksRef).then((snapshot) => {
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          const numberOfBooks = Object.keys(data).length;
-          const numberId = numberOfBooks + 1;
-          uniqueKey = numberId;
-          console.log('teste1', uniqueKey);
-          console.log('Tamanho do banco: ' + numberOfBooks);
-          booksRef = ref(db, 'books/' + uniqueKey); 
-        } else {
-          uniqueKey = 1;
-          console.log('teste n tem livro entao ele começa do zero, ou seja, um');
-          booksRef = ref(db, 'books/' + uniqueKey); 
-        }
-      });
-
-      
-
+      let booksRef = ref(db, 'users/gfm45h0kmuw/books/'+bookData.id); 
       // Insira os dados do livro, incluindo o ID, no banco de dados
       await set(booksRef, bookData);
-      console.log(bookData);
+      console.log("inserido" + bookData + "na referencia: " + booksRef);
 
       // Limpar o formulário após o registro bem-sucedido
       setBookData({
