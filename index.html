@@ -34,7 +34,7 @@
 }
 
 .menu li {
-    margin-right: 25px;
+    margin-right: 40px;
 
 }
 
@@ -107,30 +107,69 @@ a:hover {
 
 .textInicio img{
     float: right;
-    margin-top: -25em;
-    width: 50%;
+    margin-top: -30em;
+    width: 55%;
 }
 
 .textInicio button{
-    margin-top: 20em;
-    margin-left: 20em;
+    margin-top: 15em;
+    margin-left: 8em;
     background-color:transparent;
     width: 25em;
     height: 6em;
-    border-radius: 15px;
+    border-radius: 20px;
     border: none;
     border: solid 5px white;
     color: white;
     font-size: 1em;
-}
-.textInicio button p{
-   
+    cursor: pointer;
+    box-shadow: white 0px 7px 29px 0px;
 }
 
+.textInicio button :hover{
+    transition: all .5s ease-in-out; 
+}
+
+.textInicio button p{
+    display: inline;
+    margin-left: -0.10em;
+    font-size: 2em;
+    text-align: center;
+
+
+}
+
+.What{
+    position: relative;
+    height: 900px;
+    background-color: white;
+    margin-top: 10em;
+}
+
+.TextWhat h1{
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 1em;
+    color: #05DCC2;
+}
+.WhatP p{
+    position: absolute;
+    color: #666666;
+    font-weight:bold;
+    margin-top: 10em;
+    margin-left: 10em;
+    width: 37em;
+    
+}
 
 
 @media screen and (max-width: 1300px) {
-  
+    .textInicio img{
+    float: right;
+    margin-top: -20em;
+    width: 55%;
+}
+
 }
     
 
@@ -171,9 +210,20 @@ a:hover {
     </div>
        
      <img src="/bibliodaurea/src/img/Component 3.png">
-        <div>
-            <button><p>Começar</p></button>
+        <div class="DivButton">
+            <button><p>Começar Agora</p></button>
         </div>
+        
+        <div class="What">
+          <div class="TextWhat">
+            <h1>O que é</h1>
+            <div class="WhatP">
+            <p>Bibliodaurea é um software web que visa facilitar o registro de empréstimos de livros da biblioteca na escola Luiz D’Áurea. O usuário poderá utilizar diversas ferramentas que contribuem para o tratamento de cada livro, aluno e integridade da biblioteca.</p>
+            </div>
+          </div>
+       </div>
+       
+      
    </div>
    
   
