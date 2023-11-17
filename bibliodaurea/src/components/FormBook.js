@@ -22,11 +22,20 @@ function FormBook(){
     quantity: '',
     registered: '',
     since: '',
-    status: '',
+    status: 'Disponível',
     until: '',
     description: '',
     type: ''
   });
+
+  const saveFile = (data, filename) => {
+    const blob = new Blob([data]);
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+    console.log("sendo salvo em:" + link.download)
+  };
 
   //CONST'S FILE
   const fileInputRef = useRef(null);
@@ -54,12 +63,18 @@ function FormBook(){
 
     console.log('Arquivo selecionado:', file.name);
 
-    const db = getDatabase(app);
+    // Aqui você pode salvar a imagem como um arquivo local
+    saveFile(file, file.name);
 
-    try {
-      let booksRef = ref(db, 'users/gfm45h0kmuw/books/'); 
-      
-      get(booksRef).then((snapshot) => {
+    const fetchData = async () => {
+      const db = getDatabase(app);
+    
+      try {
+        let booksRef = ref(db, 'users/gfm45h0kmuw/books/'); 
+        
+        const snapshot = await get(booksRef);
+        let uniqueKeyId;
+    
         if (snapshot.exists()) {
           const data2 = snapshot.val();
           const numberOfBooks2 = Object.keys(data2).length;
@@ -70,17 +85,23 @@ function FormBook(){
           uniqueKeyId = 1;
           console.log('teste n tem livro entao ele começa do zero, ou seja, um File');
         }
-      });
-    } catch (error) {
-      console.error('Erro ao adquirir tamanho do banco:', error);
-    }
+    
+        const updatedBookData = {
+          ...bookData,
+          cover: 'C:/Users/raiza/Downloads/' + file.name,
+          id: uniqueKeyId,
+        };
+    
+        setBookData(updatedBookData);
+        console.log(updatedBookData);
+      } catch (error) {
+        console.error('Erro ao adquirir tamanho do banco:', error);
+      }
+    };
+    
+    fetchData();
+    
 
-    setBookData({
-      ...bookData,
-      cover: file.name,
-      id: uniqueKeyId,
-    });
-    console.log(bookData)
   }
 };
 
@@ -96,10 +117,14 @@ function FormBook(){
     const db = getDatabase(app);
 
     try {
-      let booksRef = ref(db, 'users/gfm45h0kmuw/books/'+bookData.id); 
-      // Insira os dados do livro, incluindo o ID, no banco de dados
+      let booksRef = ref(db, 'users/gfm45h0kmuw/books/' + bookData.id);
+
+    // Verifica se o nó já existe
+    const snapshot = await get(booksRef);
+    if (!snapshot.exists()) {
+      // Se o nó não existir, cria um novo com o ID desejado
       await set(booksRef, bookData);
-      console.log("inserido" + bookData + "na referencia: " + booksRef);
+      console.log("Inserido " + bookData.id + " na referência: " + booksRef);
 
       // Limpar o formulário após o registro bem-sucedido
       setBookData({
@@ -120,9 +145,12 @@ function FormBook(){
       });
 
       console.log('Livro registrado com sucesso!');
-    } catch (error) {
-      console.error('Erro ao registrar o livro:', error);
+    } else {
+      console.log('Já existe um livro com essa chave!');
     }
+  } catch (error) {
+    console.error('Erro ao registrar o livro:', error);
+  }
   };
 
   const handleInputChange = (e) => {

@@ -23,7 +23,7 @@ function StudentsList(props){
       // if (props.filter==false){
         async function fetchData() {
           try {
-            const studentsRef = ref(db, 'students');
+            const studentsRef = ref(db, 'users/gfm45h0kmuw/students');
             const bookSnapshot = await get(studentsRef);
          
             if (bookSnapshot.exists()) {
@@ -144,13 +144,13 @@ function StudentsList(props){
                     </thead>
                     <tbody>
                         {studentsList.map((student, index) => (
-                            <tr key={index} onClick={() => handleStudentClick(student.ra)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
+                            <tr key={index} onClick={() => handleStudentClick(student.id)} className={`${index % 2 === 0 ? styles.LightLine : styles.DefaultLine}`}>
 
                               <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''} ${index === studentsList.length - 1 ? styles.EndBAround : ''}`}> {student.cell} </td>
 
                               <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
 
-                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.name.length > 50 ? `${student.name.substring(0, 50)}...` : student.name} </td>
+                              <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.id.length > 50 ? `${student.id.substring(0, 50)}...` : student.id} </td>
 
                               <td className={`${styles.TdBList} ${index % 2 === 0 ? styles.GreenFont : ''}`}> {student.class} </td>
 

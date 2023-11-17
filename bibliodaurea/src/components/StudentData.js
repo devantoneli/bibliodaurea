@@ -27,9 +27,9 @@ function StudentData(props){
     useEffect(() => {
         async function fetchData() {
           try {
-            const studentsRef = ref(db, 'students/' + props.studentId); // Substitua "studentId" pelo ID do livro que você deseja recuperar
+            const studentsRef = ref(db, 'users/gfm45h0kmuw/students/' + props.studentId); // Substitua "studentId" pelo ID do livro que você deseja recuperar
             const studentSnapshot = await get(studentsRef);
-          
+            console.log(props.studentId)
             if (studentSnapshot.exists()) {
               const student = studentSnapshot.val();
               setStudentInfo(student);
@@ -76,7 +76,7 @@ function StudentData(props){
         const handleSaveClick = () => {
             // Atualize os dados no Firebase
             const db = getDatabase(app);
-            const studentRef = ref(db, `students/${props.id}`);
+            const studentRef = ref(db, `users/gfm45h0kmuw/students/${props.id}`);
      
             update(studentRef, editedValues)
             .then(() => {
@@ -120,8 +120,8 @@ function StudentData(props){
                     <div className={styles.BlockData}>
                         <label htmlFor="class" className={`${props.isEditMode ? styles.InEdition : ''}`}>Celular</label>
                         {props.isEditMode ? 
-                          ( <input type="text" id={styles.class} className={styles.InEditionInput} name="class" defaultValue={props.class} value={editedValues.class} onChange={(e) => setEditedValues({ ...editedValues, class: e.target.value })}/>) 
-                        : ( <div id={styles.class} name="class">{props.class}</div>)
+                          ( <input type="text" id={styles.class} className={styles.InEditionInput} name="class" defaultValue={props.cell} value={editedValues.class} onChange={(e) => setEditedValues({ ...editedValues, cell: e.target.value })}/>) 
+                        : ( <div id={styles.class} name="class">{props.cell}</div>)
                         }
                     </div>
 
