@@ -6,7 +6,10 @@ import styles from '../pages/css/register.module.css';
 
 //Database
 import app from './../firebaseConfig/index.js';
-import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
+import storage from './../firebaseConfig/index.js';
+import { get, ref, push, getDatabase, set } from 'firebase/database';
+import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage';
+
 
 function FormBook(){
   var uniqueKey;
@@ -51,20 +54,47 @@ function FormBook(){
   const file = e.target.files[0];
   //CODE'S FILE
   if (file) {
-    var fileReader = new FileReader();
-    fileReader.onload = function (e) {
-      document.getElementById("photo").src = e.target.result;
-      let linkCapa = e.target.result;
-      document.getElementById("linkImg").value = linkCapa;
-      fileInputRef.current.style.display = 'none';
-    };
-    fileReader.readAsDataURL(file);
-    document.getElementById("photo").style.opacity = '1';
 
-    console.log('Arquivo selecionado:', file.name);
+      const file = e.target.files[0];
+    
+        var fileReader = new FileReader();
+        fileReader.onload = function (e) {
+        document.getElementById("photo").src = e.target.result;
+        let linkCapa = e.target.result;
+        document.getElementById("linkImg").value = linkCapa;
+        fileInputRef.current.style.display = 'none';
 
-    // Aqui você pode salvar a imagem como um arquivo local
-    saveFile(file, file.name);
+        console.log(linkCapa)
+
+        const storageRef = ref(storage, 'users/gfm45h0kmuw/books/testes/' + file.name);
+        const uploadTask = uploadBytes(storageRef, file);
+    
+        uploadTask.on('state_changed',
+          (snapshot) => {
+            // Acompanha o progresso do upload, se necessário
+          },
+          (error) => {
+            console.error('Erro no upload da capa:', error);
+          },
+          async () => {
+            // Upload concluído com sucesso
+            const downloadURL = await getDownloadURL(storageRef);
+    
+            // Atualiza o estado com a URL da capa
+            setBookData({
+              ...bookData,
+              cover: downloadURL,
+            });
+          }
+        );
+      
+        fileReader.readAsDataURL(file);
+        document.getElementById("photo").style.opacity = '1';
+        console.log('Arquivo selecionado:', file.name);
+      }
+  
+
+    //Pegar id do nó \/\/\/\/\/
 
     const fetchData = async () => {
       const db = getDatabase(app);
@@ -88,7 +118,7 @@ function FormBook(){
     
         const updatedBookData = {
           ...bookData,
-          cover: 'C:/Users/raiza/Downloads/' + file.name,
+          cover: file.name,
           id: uniqueKeyId,
         };
     
