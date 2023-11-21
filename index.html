@@ -13,7 +13,12 @@
 <body style="font-family:'Outfit', sans-serif; background-color: #05DCC2;">
     <style>
         
-    .container {
+body,html{
+    padding: 0;
+    margin: 0;
+}
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,7 +77,7 @@ a:hover {
 #traço{
     color: #FFFFFF;
     font-size: 30px;
-    margin-left: -10px;
+    margin-left: -18px;
     margin-top: -10px;
 }
 .textInicio h1{
@@ -168,6 +173,51 @@ a:hover {
   width: 65%;
 }
 
+.blur-hr {
+      position: absolute;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+      filter: blur(10px);
+      border: none;
+      margin-top: -1.2em;
+      padding: 0;
+      
+    }
+.funções{
+    background: linear-gradient(to right, #18acc3 25%, #06DCC3 50%, #23b2b2 100%);
+    position: relative;
+    margin-top: -5em;
+    height: 70em;
+}
+
+.funções img{
+    position: relative;
+    margin-top: 10em;
+    margin-right: 15em;
+    width: 75%;
+
+}
+
+.blur-hr2{
+      position: absolute;
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+      filter: blur(10px);
+      border: none;
+      margin-top: -4.5em;
+      padding: 0;
+}
+
+.ferramentas{
+    display: inline-block;
+    display: flex;
+    position: absolute;
+    margin-top:1em;
+    margin-left:15em ;
+    width: 20%;
+}
 
 @media screen and (max-width: 1300px){
     .textInicio img{
@@ -210,6 +260,28 @@ a:hover {
     font-size: 1em;
     cursor: pointer;
 }
+.funções img{
+    position: relative;
+    margin-top: 15em;
+    margin-right: 8em;
+    width: 80%;
+
+}
+.funções{
+    background: linear-gradient(to right, #18acc3 25%, #06DCC3 50%, #23b2b2 100%);
+    position: relative;
+    margin-top: -5em;
+    height: 60em;
+}
+
+.ferramentas{
+    display: inline-block;
+    display: flex;
+    position: absolute;
+    margin-top:-5em;
+    margin-left:12em ;
+    width: 20%;
+}
     
 }
 
@@ -239,11 +311,12 @@ a:hover {
     </div>
 
     <div class="textInicio">
+       
     <div class="textInicio">
         <h1>Bibliodaurea</h1>
         <h3>Automatização de registros bibliotecários</h3>
         <div class="textInicio">
-            <p>Contrary to popular belief, Lorem Ipsum is<br> not simply random text. It has roots in a<br> piece of classical Latin literature from 45 BC,<br> making it over 2000 years old. Richard<br> McClintock, a Latin professor at Hampden<br>-Sydney College in Virginia, looked up one of<br> the more obscure Latin words, consectetur, from<br> a Lorem Ipsum passage.</p>
+            <p>Simplifique o registro de empréstimos de livros, a organização dos alunos e mantenha a integridade da sua biblioteca na ponta dos seus dedos. Descubra como as diversas ferramentas do Bibliodaurea podem revolucionar a maneira como você administra sua biblioteca na Escola Luiz D’Áurea. Comece agora e experimente a praticidade e eficiência da automação bibliotecária.</p>
         </div>
          
     </div>
@@ -255,6 +328,7 @@ a:hover {
         </div>
         
         <div class="What">
+            <hr class="blur-hr">
           <div class="TextWhat">
             <h1>O que é</h1>
             <div class="WhatP">
@@ -265,9 +339,29 @@ a:hover {
             <img src="/bibliodaurea/src/img/Component 2.png">
           </div>
        </div>
-       
+
       
-   </div>
+        <section>
+          
+            <div class="funções">
+                <hr class="blur-hr2">
+                <img src="/bibliodaurea/src/img/Component 4 (2).png">
+
+                <div class="ferramentas">
+
+                    <div class="img">
+                        <img src="/bibliodaurea/src/img/Group 4_01.png">
+                   </div>
+                   <div class="img">
+                        <img src="/bibliodaurea/src/img/Group 4_02.png">
+                  </div>
+                   <div class="img"> 
+                        <img src="/bibliodaurea/src/img/Group 4_03.png">
+                 </div>
+                </div>
+            </div>
+        </section>
+    </div>
    
   
 
