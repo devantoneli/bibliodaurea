@@ -6,7 +6,9 @@ import styles from '../pages/css/register.module.css';
 
 //Database
 import app from './../firebaseConfig/index.js';
-import { get, ref, push, getDatabase, set } from 'firebase/database'; // Importe as funções corretamente
+import { get, ref, push, getDatabase, set } from 'firebase/database';
+import { getStorage } from 'firebase/storage';
+import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function FormBook(){
   var uniqueKey;
@@ -17,6 +19,7 @@ function FormBook(){
     genre: '',
     author: '',
     cover: '',
+    cover2: '',
     edition: '',
     copies: 0,
     quantity: '',
@@ -28,14 +31,14 @@ function FormBook(){
     type: ''
   });
 
-  const saveFile = (data, filename) => {
-    const blob = new Blob([data]);
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-    console.log("sendo salvo em:" + link.download)
-  };
+  // const saveFile = (data, filename) => {
+  //   const blob = new Blob([data]);
+  //   const link = document.createElement('a');
+  //   link.href = URL.createObjectURL(blob);
+  //   link.download = filename;
+  //   link.click();
+  //   console.log("sendo salvo em:" + link.download)
+  // };
 
   //CONST'S FILE
   const fileInputRef = useRef(null);
@@ -49,12 +52,13 @@ function FormBook(){
 
   const handleFileChange = (e) => {
   const file = e.target.files[0];
+  var linkCapa
   //CODE'S FILE
   if (file) {
     var fileReader = new FileReader();
     fileReader.onload = function (e) {
       document.getElementById("photo").src = e.target.result;
-      let linkCapa = e.target.result;
+      linkCapa = e.target.result;
       document.getElementById("linkImg").value = linkCapa;
       fileInputRef.current.style.display = 'none';
     };
@@ -64,7 +68,7 @@ function FormBook(){
     console.log('Arquivo selecionado:', file.name);
 
     // Aqui você pode salvar a imagem como um arquivo local
-    saveFile(file, file.name);
+    // saveFile(file, file.name);
 
     const fetchData = async () => {
       const db = getDatabase(app);
@@ -88,7 +92,7 @@ function FormBook(){
     
         const updatedBookData = {
           ...bookData,
-          cover: 'C:/Users/raiza/Downloads/' + file.name,
+          cover2: file,
           id: uniqueKeyId,
         };
     
@@ -115,6 +119,24 @@ function FormBook(){
   const handleSubmit = async (e) => {
     e.preventDefault();
     const db = getDatabase(app);
+    const storage = getStorage(app);
+    var downloadURL;
+
+    const storageRef2 = storageRef(storage, 'users/gfm45h0kmuw/books/book'+bookData.id+'.jfif'); // Substitua pelo caminho desejado
+    const file = bookData.cover2; // O arquivo selecionado do estado
+
+    try {
+      await uploadBytes(storageRef2, file);
+      
+      bookData.cover = await getDownloadURL(storageRef2);
+      console.log("ta indo pro cover " + downloadURL);
+
+      console.log("Bookdata setado a imagem: "+bookData.cover);
+
+      } catch (error) {
+        console.error('Erro ao fazer upload do arquivo:', error);
+      }
+
 
     try {
       let booksRef = ref(db, 'users/gfm45h0kmuw/books/' + bookData.id);
