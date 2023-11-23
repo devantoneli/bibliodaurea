@@ -301,13 +301,61 @@ input:focus {
 
 /*REGISTER STUDENTS*/
 
+.classPeriod {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputValue7{
+    background: none;
+    border: none;
+    width: 11em;
+    font-family: 'Outfit';
+    font-size: 1.2em ;
+    color:#001a1a;
+}
+
+.inputValue8{
+    background: none;
+    border: none;
+    width: 12em;
+    font-family: 'Outfit';
+    font-size: 1.2em ;
+    color:#001a1a;
+}
+
+select:focus-visible {
+    outline: none;
+}
+
+.inputForm7{
+    display: flex;
+    width: 40em;
+    margin-right: 10px;
+    height: 3em;
+    border-radius: 13px;
+    border: none;
+    border: solid 3px #00BCDE;
+    box-shadow: rgba(0, 0, 0, 0.101) 0px 3px 8px;
+
+}
+
+.inputForm7 label{
+    font-weight: bold;
+    padding: 0.50em;
+    font-family: 'Outfit';
+    font-size: 1.3em ;
+    color:#037e7e;
+}
+
 .backgroundRegister{
     display: flex;
-    width:1084;
+    width: 1084;
     height: 700px;
-    margin-top: 100px;
+    position: relative;
+    top: 100px;
     margin-left: 30px;
-    border-radius:10px;
+    border-radius: 10px;
     background-color: white;
     box-shadow: 1px 7px 7px 0px rgba(0, 0, 0, 0.30);
 }
@@ -363,11 +411,7 @@ input:focus {
 .inputValue{
     background: none;
     border: none;
-    width: 50em;
-    
-    
-   
-   
+    width: 50em;  
 }
 
 /* Responsive Register Students*/
