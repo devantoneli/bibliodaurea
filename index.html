@@ -128,10 +128,11 @@ a:hover {
     color: white;
     font-size: 1em;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
 }
 
-.textInicio button :hover{
-    transition: all .5s ease-in-out; 
+.textInicio button:hover{
+    transform: translateY(-10px);
 }
 
 .textInicio button p{
@@ -171,6 +172,11 @@ a:hover {
   margin-top: 25em;
   margin-left: 20em;
   width: 65%;
+  transition: 500ms linear; 
+}
+
+.fluxo img:hover{
+    transform: scale(1.1);
 }
 
 .blur-hr {
@@ -246,32 +252,81 @@ a:hover {
     font-weight: bold;
 }
 
+
 .div1{
     width: 25em;
     height: 25em;
-    background: rgba(34, 33, 33, 0.3);
+    background: rgba(34, 33, 33, 0.2);
     margin-left: 10em;
     border-radius: 40px;
+    transition: transform 0.3s ease-in-out; 
+    cursor: pointer;
+    border: none;
   
 }
 
-.div2{
-    width: 25em;
-    height: 25em;
-    background: rgba(34, 33, 33, 0.3);
-    margin-left: 11em;
-    border-radius: 40px;
+.div1:hover{
+    transform: translatey(-20px);
+}
+
+.div1 button{
+    height: 5em;
+    width: 20em;
+    margin-top: 4em;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background: linear-gradient( #06DCC3, #18acc3);
     
 }
-
-.div3{
-    width: 25em;
-    height: 25em;
-    background: rgba(34, 33, 33, 0.3);
-    margin-left: 10em;
-    border-radius: 40px;
+.div1 button p{
+    font-size: 1.5em;
 }
 
+.div2{
+    position: absolute;
+    margin-top: 36em;
+    width: 100%;
+    height: 60em;
+    background-color: white;
+}
+.div2 h1{
+    text-align: center;
+    font-size: 5em;
+    color: #03BFDF;
+    font-weight:bold;
+}
+.div2 img{
+    margin-top: -10em;
+    margin-left: 10em;
+}
+#nós{
+    position: absolute;
+    margin-top: 58em;
+    margin-left: 15em;
+}
+
+.TextQuemSomos p{
+    position: absolute;
+    color: #666666;
+    font-weight:bold;
+    margin-top: -20em;
+    margin-left: 50em;
+    width: 37em;
+  
+}
+
+.blur-hr3{
+      position: absolute;
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+      filter: blur(10px);
+      border: none;
+      margin-top: 35em;
+      padding: 0;
+}
 
 
 
@@ -318,9 +373,9 @@ a:hover {
 }
 .funções img{
     position: relative;
-    margin-top: 15em;
+    margin-top: 6em;
     margin-right: 8em;
-    width: 80%;
+    width: 95%;
 
 }
 .funções{
@@ -330,14 +385,63 @@ a:hover {
     height: 60em;
 }
 
-.ferramentas{
-    display: inline-block;
+
+.ferramentas {
+    position: relative;
     display: flex;
-    position: absolute;
-    margin-top:-5em;
-    margin-left:12em ;
-    width: 20%;
+    margin-top: -55rem;
 }
+
+.imgs {
+    flex: 1;
+
+}
+
+.img1 {
+    margin-left: 5em;
+    width: 10%;
+}
+
+.img2 {
+    margin-left: 26em; 
+    width: 10%;
+}
+
+.img3 {
+    margin-left: 26em;
+}
+.div1{
+    width: 24em;
+    height: 25em;
+    background: rgba(34, 33, 33, 0.2);
+    margin-left: 2.3em;
+    border-radius: 40px;
+    transition: transform 0.3s ease-in-out; 
+    cursor: pointer;
+    border: none;
+  
+}
+
+.div1:hover{
+    transform: translatey(-20px);
+}
+
+.div1 button{
+    height: 5em;
+    width: 20em;
+    margin-top: 4em;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background: linear-gradient( #06DCC3, #18acc3);
+    
+}
+.div1 button p{
+    font-size: 1.5em;
+}
+
+
     
 }
 
@@ -402,35 +506,58 @@ a:hover {
             <div class="funções">
                 <hr class="blur-hr2">
                 <img src="/bibliodaurea/src/img/Component 4 (2).png"></div>
+            </section>
             </div>
 
-        </section>
+        
 
         <section class="ferramentas">
             <div class="imgs img1">
-                <img src="/bibliodaurea/src/img/Component 5.png" alt="Imagem 1">
+                <img src="/bibliodaurea/src/img/Component 5.png">
             </div>
             <div class="imgs img2">
-                <img src="/bibliodaurea/src/img/Component 6.png" alt="Imagem 2">
+                <img src="/bibliodaurea/src/img/Component 6.png">
             </div>
             <div class="imgs img3">
-                <img src="/bibliodaurea/src/img/Component 7.png" alt="Imagem 3">
+                <img src="/bibliodaurea/src/img/Component 7.png">
             </div>
         </section>
 
         <section class="ferramentas2">
             <div class="div1">
                 <p>Ferramentas diversas<br> como: registro de dados,<br> geração de relatórios e<br>  organização de<br> informações.</p>
+
+                <button><p>Começar agora</p></button>
             </div>
-            <div class="div2">
-                <p>Acesso aos livros por categoria, gênero,<br> número de exemplares,<br> título, autor e mais.</p>
+            <div class="div1">
+                <p>Acesso aos livros por categoria, gênero,<br> número de exemplares,<br> título, autor e mais.</p><br><br>
+
+                <button><p>Começar agora</p></button>
             </div>
-            <div class="div3">
+            <div class="div1">
                 <p>Controle de alunos,<br> alerta em casos de não devolução dos livros e tratamento de dados<br>por data.</p>
+
+                <button><p>Começar agora</p></button>
             </div>
         </section>
-        
-    </div>
+
+        <section class="QuemSomos">
+            <hr class="blur-hr3">
+             <div class="div2">
+                 <h1>Quem somos?</h1>
+                    <img src="/bibliodaurea/src/img/Component 8 (3).png">
+                    <div class="TextQuemSomos">
+                         <p>Somos um grupo dedicado de alunos da escola Luiz D’Áurea, na 3º série do ensino médio com integração ténica em Informática para Internet. Como projeto de TCC, desenvolvemos o Bibliodaurea, afim de facilitar o trabalho da bibliotecária escolar que, até então, realizava esses procedimentos em um simples caderno.</p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="/bibliodaurea/src/img/nós.png" id="nós">
+                   
+                </div>
+             
+        </section>
+
+     
    
   
 
