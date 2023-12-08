@@ -22,8 +22,8 @@ function Menu(){
                         <li><Link to="/consultar/livros" className={styles.Option}>Livros</Link></li>
 
                         <li><Link to="/consultar/alunos" className={styles.Option}>Alunos</Link></li>
-
-                        <li><Link to="/consultar/emprestimos" className={styles.Option}>Empréstimos</Link></li>
+{/* 
+                        <li><Link to="/consultar/emprestimos" className={styles.Option}>Empréstimos</Link></li> */}
                     </ul>
 
                     <h1 className={styles.MenuGroup}>Cadastrar</h1>
@@ -33,13 +33,13 @@ function Menu(){
                         <li><Link to="/cadastrar/alunos" className={styles.Option}>Alunos</Link></li>
                     </ul>
 
-                    <h1 className={styles.MenuGroup}>Outros</h1>
+                    {/* <h1 className={styles.MenuGroup}>Outros</h1> */}
                     <ul className={styles.MenuOptions}>
-                        <li><Link to="/relatorios" className={styles.Option}>Relatórios</Link></li>
+                        {/* <li><Link to="/relatorios" className={styles.Option}>Relatórios</Link></li>
 
                         <li><Link to="/minha-conta" className={styles.Option}>Minha conta</Link></li>
 
-                        <li><Link to="/ajuda" className={styles.Option}>Ajuda</Link></li>
+                        <li><Link to="/ajuda" className={styles.Option}>Ajuda</Link></li> */}
                     </ul>
 
                 </ul>

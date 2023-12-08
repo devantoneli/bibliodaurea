@@ -34,15 +34,15 @@ function App() {
             <Route path="/consultar/alunos" element={<ConsultStudents />}>
             </Route>
 
-            <Route path="/consultar/emprestimos" element={<ConsultLoans />}>
-            </Route>
+            {/* <Route path="/consultar/emprestimos" element={<ConsultLoans />}>
+            </Route> */}
 
             <Route path="/cadastrar/livros" element={<RegisterBooks />}>
             </Route>
 
             <Route path="/cadastrar/alunos" element={<RegisterStudents />}>
             </Route>
-
+{/* 
             <Route path="/relatorios" element={<Reports />}>
             </Route>
 
@@ -50,7 +50,7 @@ function App() {
             </Route>
 
             <Route path="/ajuda" element={<Help />}>
-            </Route>
+            </Route> */}
           </Routes>
         </div>
       </div>
